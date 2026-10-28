@@ -1,4 +1,4 @@
-# Isarura
+﻿# Isarura
 
 **From harvest to table: where Rwanda's food is lost, what it is worth today, and where to act first.**
 
@@ -6,7 +6,7 @@ NISR 2026 Big Data Hackathon, Track 1: Agricultural Productivity.
 Team: NIYONKURU Jean De La Croix, Chadia.
 
 > **Status:** the app currently shows **synthetic demo data** while the NISR microdata pipeline is
-> being connected. A banner in the app says so. See [TASKS.md](TASKS.md).
+> being connected. A banner in the app says so. See [TASKS.md](docs/internal/TASKS.md).
 
 - Live app: TODO
 - Backup: TODO
