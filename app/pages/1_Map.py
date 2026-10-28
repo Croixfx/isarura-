@@ -35,8 +35,11 @@ fig = px.choropleth(d, geojson=geojson(), locations="district", featureidkey="pr
                     hover_data={"district": False, "value_rwf": ":,.0f", "tonnes_lost": ":,.0f", "loss_rate": ":.1%"},
                     labels={"value_rwf": "Value lost (Rwf)", "tonnes_lost": "Tonnes lost", "loss_rate": "Loss rate",
                             "best_rank": "Best priority rank"})
-fig.update_geos(fitbounds="locations", visible=False)
-fig.update_layout(height=520, margin=dict(l=0, r=0, t=0, b=0))
+
+# UPDATED: Use "geojson" instead of "locations" so it fits the whole country
+fig.update_geos(fitbounds="geojson", visible=False)
+fig.update_layout(height=520, margin=dict(l=0, r=0, t=0, b=0), autosize=True)
+
 event = st.plotly_chart(fig, width="stretch", on_select="rerun", selection_mode="points", key="map")
 st.markdown(BADGE["calculated"] + (" Rank 1 = highest loss value." if col == "best_rank" else ""))
 
