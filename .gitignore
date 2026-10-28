@@ -1,0 +1,17 @@
+# NISR microdata and private intermediates: NEVER commit (licence)
+data/raw/
+data/interim/
+*.dta
+*.sav
+*.sas7bdat
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

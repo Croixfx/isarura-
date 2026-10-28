@@ -1,0 +1,11 @@
+# App + pipeline (pinned to versions tested on 28 Oct 2026)
+pandas==3.0.5
+numpy>=2.1
+pyarrow>=17
+streamlit==1.66.1
+plotly==7.1.0
+# Pipeline only (reading NISR files)
+pyreadstat>=1.2
+xlrd>=2.0
+# Tests
+pytest>=8
