@@ -6,7 +6,8 @@ Output: loss_rates (district rows + 'National' rows), tonnes (rate x published p
 import pandas as pd
 
 from isarura_core.contracts import CONTRACTS, check
-from isarura_core.estimators import loss_rates, stage_consistency, validate_loss_share, weighted_production
+from isarura_core.estimators import (loss_rates, scale_to_national, stage_consistency, validate_loss_share,
+                                     weighted_production)
 
 from .common import Paths, log
 
@@ -43,7 +44,9 @@ def run(p: Paths, n_boot: int = 200):
     log("03", f"{len(dist):,} district cells, {dist['flag_small_n'].mean():.0%} flagged small-n")
 
     # Tonnes: apply the rate to PUBLISHED district production so totals reconcile to NISR.
-    # Where NISR publishes no district figure, fall back to our weighted estimate and say so.
+    # Where NISR publishes no district figure for a crop x season (e.g. 2024A), scale each district's
+    # survey share to NISR's published NATIONAL production; only if that is missing too, use the raw
+    # survey total. production_base records which one was used.
     pub_path = p.inputs / "published_district.csv"
     ours = weighted_production(rec, by=("crop", "district", "season")).rename(columns={"our_estimate_t": "survey_t"})
     
@@ -56,13 +59,16 @@ def run(p: Paths, n_boot: int = 200):
         base = ours.merge(pub, on=["crop", "district", "season"], how="left")
     else:
         base = ours.assign(production_t=float("nan"))
-        
-    base["production_base"] = base["production_t"].notna().map({True: "NISR published", False: "survey estimate"})
-    base["production_t"] = base["production_t"].fillna(base["survey_t"])
+    national = check(pd.read_csv(p.inputs / "published_national.csv"), "published_national")
+    base = scale_to_national(base, national)
 
     t = dist.merge(base[["crop", "district", "season", "production_t", "production_base"]],
                    on=["crop", "district", "season"], how="left")
     t["tonnes_lost"] = t["loss_rate"] * t["production_t"]
     t.to_parquet(p.out("tonnes"), index=False)
-    share = (base["production_base"] == "NISR published").mean()
-    log("03", f"tonnes computed; {share:.0%} of cells use NISR published production as base")
+    tot = t[t["stage"] == "total"]
+    for col, what in (("production_t", "production"), ("tonnes_lost", "tonnes lost")):
+        sh = tot.groupby("production_base")[col].sum() / tot[col].sum()
+        log("03", f"share of {what} by production base: " + ", ".join(f"{k} {v:.1%}" for k, v in sh.items()))
+    log("03", "share of cells: " + ", ".join(
+        f"{k} {v:.0%}" for k, v in base["production_base"].value_counts(normalize=True).items()))

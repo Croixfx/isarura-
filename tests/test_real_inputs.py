@@ -113,3 +113,38 @@ def test_loss_share_matches_nisr_workbook(book, sheet, season):
             assert sh[crop] == pytest.approx(r[col], rel=1e-6), (sheet, crop)
             checked += 1
     assert checked >= 2   # season C covers only sweet potato, Irish potato and beans (beans are weighted, not checked)
+
+
+# ---- scaling survey district shares to the NISR national total (step 03 fallback) ----------------------
+def _base(rows):
+    return pd.DataFrame(rows, columns=["crop", "district", "season", "survey_t", "production_t"])
+
+
+def test_scale_to_national_districts_sum_to_nisr_national():
+    from isarura_core.estimators import BASE_DISTRICT, BASE_NATIONAL_SHARE, scale_to_national
+    nat = pd.read_csv(INPUTS / "published_national.csv")
+    nan = float("nan")
+    base = _base([("maize", "Huye", "2024A", 100.0, nan), ("maize", "Gasabo", "2024A", 300.0, nan),
+                  ("beans", "Huye", "2024A", 50.0, nan), ("beans", "Gasabo", "2024A", 50.0, nan),
+                  ("maize", "Huye", "2025A", 10.0, 111.0), ("maize", "Gasabo", "2025A", 20.0, 222.0)])
+    out = scale_to_national(base, nat).set_index(["crop", "district", "season"])
+    national = nat.set_index(["crop", "season"])["production_t"]
+    for crop in ("maize", "beans"):
+        g = out.loc[crop].xs("2024A", level="season")
+        assert g["production_t"].sum() == pytest.approx(national[(crop, "2024A")])
+        assert (g["production_base"] == BASE_NATIONAL_SHARE).all()
+    # shares follow the survey: Gasabo has 3x Huye's maize
+    assert out.loc[("maize", "Gasabo", "2024A"), "production_t"] == pytest.approx(
+        0.75 * national[("maize", "2024A")])
+    # a crop x season with published district figures is untouched
+    assert out.loc[("maize", "Huye", "2025A"), "production_t"] == 111.0
+    assert out.loc[("maize", "Huye", "2025A"), "production_base"] == BASE_DISTRICT
+
+
+def test_scale_to_national_falls_back_to_survey_when_no_national_figure():
+    from isarura_core.estimators import BASE_SURVEY, scale_to_national
+    nat = pd.read_csv(INPUTS / "published_national.csv")
+    nan = float("nan")
+    out = scale_to_national(_base([("maize", "Huye", "1999A", 40.0, nan), ("maize", "Gasabo", "1999A", 60.0, nan)]), nat)
+    assert out["production_t"].tolist() == [40.0, 60.0]
+    assert (out["production_base"] == BASE_SURVEY).all()

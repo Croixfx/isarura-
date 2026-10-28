@@ -33,6 +33,40 @@ def validate_totals(records: pd.DataFrame, published: pd.DataFrame,
     return v
 
 
+BASE_DISTRICT = "NISR published"
+BASE_NATIONAL_SHARE = "NISR national x survey district share"
+BASE_SURVEY = "survey estimate"
+
+
+def scale_to_national(base: pd.DataFrame, national: pd.DataFrame) -> pd.DataFrame:
+    """Fill production_t / production_base where NISR published no district figure.
+
+    `base` has crop, district, season, survey_t (survey-weighted tonnes) and production_t
+    (NISR district figure, NaN where missing). For a crop x season with NO published district
+    figure at all, each district gets its share of the survey total times NISR's published
+    NATIONAL production, so the districts add up to the national figure. Only where no national
+    figure exists either do we keep the raw survey total.
+    """
+    b = base.copy()
+    b["production_base"] = BASE_DISTRICT
+    has_pub = b.groupby(["crop", "season"])["production_t"].transform(lambda s: s.notna().any())
+    todo = ~has_pub
+    nat = national[["crop", "season", "production_t"]].rename(columns={"production_t": "national_t"})
+    nat = nat.drop_duplicates(["crop", "season"])
+    b = b.merge(nat, on=["crop", "season"], how="left")
+    total = b.groupby(["crop", "season"])["survey_t"].transform("sum")
+    scaled = b["survey_t"] / total * b["national_t"]
+    use_nat = todo & scaled.notna() & (total > 0)
+    b.loc[use_nat, "production_t"] = scaled[use_nat]
+    b.loc[use_nat, "production_base"] = BASE_NATIONAL_SHARE
+    # cells without a published district figure that could not be scaled: raw survey estimate
+    # (includes the odd missing district inside a crop x season that NISR does cover)
+    raw = b["production_t"].isna()
+    b.loc[raw, "production_t"] = b.loc[raw, "survey_t"]
+    b.loc[raw, "production_base"] = BASE_SURVEY
+    return b.drop(columns="national_t")
+
+
 def validate_loss_share(rates: pd.DataFrame, share: pd.DataFrame) -> pd.DataFrame:
     """Compare our national total loss rate (x100) with NISR's published post-harvest loss share (%)."""
     nat = rates[(rates["district"] == "National") & (rates["stage"] == "total")]
