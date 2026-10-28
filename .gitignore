@@ -15,3 +15,9 @@ venv/
 Thumbs.db
 .vscode/
 .idea/
+
+# Handoff archives
+isarura_handoff*.zip
+
+# Stray microdata exports in the repo root
+/*.parquet

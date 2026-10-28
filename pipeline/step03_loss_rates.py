@@ -5,8 +5,8 @@ Output: loss_rates (district rows + 'National' rows), tonnes (rate x published p
 """
 import pandas as pd
 
-from isarura_core.contracts import check
-from isarura_core.estimators import loss_rates, stage_consistency, weighted_production
+from isarura_core.contracts import CONTRACTS, check
+from isarura_core.estimators import loss_rates, stage_consistency, validate_loss_share, weighted_production
 
 from .common import Paths, log
 
@@ -27,6 +27,19 @@ def run(p: Paths, n_boot: int = 200):
     rates = check(pd.concat([dist, nat], ignore_index=True), "loss_rates")
     rates.to_parquet(p.out("loss_rates"), index=False)
     stage_consistency(dist).to_parquet(p.out("stage_consistency"), index=False)
+
+    # Second validation: our national loss rate against NISR's own published post-harvest loss share.
+    share_path = p.inputs / "published_loss_share.csv"
+    share = pd.read_csv(share_path) if share_path.exists() else pd.DataFrame()
+    if share.empty:
+        share = pd.DataFrame(columns=list(CONTRACTS["published_loss_share"]))
+    vl = check(validate_loss_share(rates, check(share, "published_loss_share")), "validation_loss")
+    vl.to_parquet(p.out("validation_loss"), index=False)
+    if len(vl):
+        log("03", f"loss share vs NISR: median |diff| {vl['difference_pp'].abs().median():.2f} pp "
+                  f"over {len(vl)} crop x season pairs")
+    else:
+        log("03", "no published loss shares to compare with")
     log("03", f"{len(dist):,} district cells, {dist['flag_small_n'].mean():.0%} flagged small-n")
 
     # Tonnes: apply the rate to PUBLISHED district production so totals reconcile to NISR.
@@ -37,6 +50,9 @@ def run(p: Paths, n_boot: int = 200):
     if pub_path.exists():
         # ADDED dtype={'production_t': float} to prevent TypeError on typos in the CSV
         pub = check(pd.read_csv(pub_path, dtype={'production_t': float}), "published_district")[["crop", "district", "season", "production_t"]]
+    pub = pd.read_csv(pub_path) if pub_path.exists() else pd.DataFrame()
+    if not pub.empty:
+        pub = check(pub, "published_district")[["crop", "district", "season", "production_t"]]
         base = ours.merge(pub, on=["crop", "district", "season"], how="left")
     else:
         base = ours.assign(production_t=float("nan"))

@@ -40,6 +40,11 @@ The demo data is fake and only lets us build before the NISR files arrive. Nothi
 
 ## 2. Find the variables (1-2 hours)
 
+> **Heads-up on column names (SAS 2025).** The online catalog lists the variables only as `V1`...`V101`,
+> and codes like `s2q41` show up as *values*. The real variable names are probably in the **first data
+> row**. If so, promote that row to the header before mapping (e.g. `df.columns = df.iloc[0]; df = df.iloc[1:]`).
+> The files are `Rwa_raw_Season{A,B,C}2025_Production`. Check this first, then tell Croix what you found.
+
 Open the files and find the crop-level file (one row per farm × crop × season):
 
 ```python

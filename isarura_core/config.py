@@ -24,9 +24,9 @@ SEED = 2026
 # Reconciliation tolerance vs NISR published totals (percent). Set after first comparison.
 VALIDATION_TOLERANCE_PCT = 5.0
 
-# Daily energy requirement per adult equivalent (kcal). CONFIRM against the EICV7
-# poverty-line methodology note and cite it; it is editable in the app.
-KCAL_PER_ADULT_DAY = 2500
+# Daily energy requirement per adult equivalent (kcal). NISR EICV7 Methodological Note
+# (statistics.gov.rw, 2025-04), p.30: poverty line uses 2,400 kcal/adult equivalent/day.
+KCAL_PER_ADULT_DAY = 2400
 
 # kcal per kg of the edible product as harvested. PLACEHOLDER values: replace with
 # FAO/INFOODS figures, and record table name and version in docs/data_sources.md.
@@ -34,7 +34,7 @@ KCAL_PER_KG = {
     "maize": 3650,
     "beans": 3410,
     "sorghum": 3390,
-    "rice": 3600,
+    "rice": 3600,   # NOTE: SAS reports PADDY rice; milled ~3600, paddy lower. Fix with FAO factor.
     "wheat": 3400,
     "cassava": 1600,
     "irish_potato": 770,
