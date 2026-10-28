@@ -15,7 +15,10 @@ from .common import Paths, log
 
 def run(p: Paths):
     rec = pd.read_parquet(p.crop_records)
-    pub = check(pd.read_csv(p.inputs / "published_national.csv"), "published_national")
+    
+    # ADDED dtype={'production_t': float} to prevent TypeError on typos in the CSV
+    pub = check(pd.read_csv(p.inputs / "published_national.csv", dtype={'production_t': float}), "published_national")
+    
     v = check(validate_totals(rec, pub), "validation")
     v.to_parquet(p.out("validation"), index=False)
     ok = v["within_tolerance"].mean()
