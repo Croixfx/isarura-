@@ -68,7 +68,9 @@ def test_value_and_meals():
     assert v["value_rwf"].iloc[0] == 800_000
     assert v["kcal"].iloc[0] == 2000 * 3650
     assert v["adult_years"].iloc[0] == pytest.approx(2000 * 3650 / (2500 * 365))
-    assert adult_years(2500 * 365) == pytest.approx(1.0)
+    assert adult_years(2500 * 365, kcal_per_adult_day=2500) == pytest.approx(1.0)
+    from isarura_core.config import KCAL_PER_ADULT_DAY
+    assert KCAL_PER_ADULT_DAY == 2400   # NISR EICV7 Methodological Note, p.30
 
 
 def test_priority_default_and_scenario():

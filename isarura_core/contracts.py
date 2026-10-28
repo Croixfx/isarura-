@@ -22,6 +22,9 @@ CONTRACTS = {
     # ---- hand-built inputs (data/inputs), copied from NISR publications ----------
     # National production by crop x season from the SAS report (Croix).
     "published_national": {"crop": "str", "season": "str", "production_t": "num", "source": "str"},
+    # NISR official post-harvest loss as % of production, by crop x season ("Use of production by
+    # farmers" tables). Used to validate our loss rates (Croix).
+    "published_loss_share": {"crop": "str", "season": "str", "loss_share_pct": "num", "source": "str"},
     # District production by crop x season from the SAS report (Croix). May be partial.
     "published_district": {"crop": "str", "district": "str", "season": "str", "production_t": "num", "source": "str"},
     # Unit values from EICV7 food records, one row per household item (private, Croix).
@@ -31,6 +34,8 @@ CONTRACTS = {
     # ---- public (data/public) -----------------------------------------------------
     "validation": {"crop": "str", "season": "str", "nisr_published_t": "num", "our_estimate_t": "num",
                    "difference_pct": "num", "within_tolerance": "bool"},
+    "validation_loss": {"crop": "str", "season": "str", "nisr_published_pct": "num",
+                        "our_estimate_pct": "num", "difference_pp": "num"},
     "loss_rates": {"crop": "str", "district": "str", "season": "str", "stage": "str",
                    "loss_rate": "num", "ci_low": "num", "ci_high": "num",
                    "n_farmers": "int", "flag_small_n": "bool"},
@@ -41,11 +46,16 @@ CONTRACTS = {
                    "price_low": "num", "price_central": "num", "price_high": "num",
                    "value_low_rwf": "num", "value_rwf": "num", "value_high_rwf": "num",
                    "kcal": "num", "adult_years": "num", "flag_small_n": "bool"},
+    # Latest official seasons (published production newer than the microdata), national level:
+    # loss rate from the same season letter in the latest microdata year x published production.
+    "loss_latest": {"crop": "str", "season": "str", "rate_from_season": "str", "production_t": "num",
+                    "loss_rate": "num", "tonnes_lost": "num", "value_low_rwf": "num", "value_rwf": "num",
+                    "value_high_rwf": "num", "kcal": "num", "adult_years": "num", "source": "str"},
     "priority_index": {"district": "str", "crop": "str", "loss_value_rwf": "num",
                        "avoidable_value_rwf": "num", "rank": "int", "assumption_set": "str"},
 }
 
-PUBLIC_TABLES = ["validation", "loss_rates", "prices", "loss_value", "priority_index"]
+PUBLIC_TABLES = ["validation", "validation_loss", "loss_rates", "prices", "loss_value", "loss_latest", "priority_index"]
 
 _KIND_CHECK = {
     "str": lambda s: pd.api.types.is_string_dtype(s) or pd.api.types.is_object_dtype(s),
@@ -60,7 +70,8 @@ def check(df: pd.DataFrame, name: str) -> pd.DataFrame:
     missing = [c for c in spec if c not in df.columns]
     if missing:
         raise ValueError(f"{name}: missing columns {missing}")
-    bad = [c for c, k in spec.items() if not _KIND_CHECK[k](df[c])]
+    # an empty table (e.g. header-only CSV not filled yet) has no meaningful dtypes
+    bad = [] if df.empty else [c for c, k in spec.items() if not _KIND_CHECK[k](df[c])]
     if bad:
         raise TypeError(f"{name}: wrong dtype for {[(c, str(df[c].dtype), spec[c]) for c in bad]}")
     if "district" in spec and name not in ("unit_values",):

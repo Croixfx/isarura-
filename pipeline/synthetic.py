@@ -63,6 +63,11 @@ def make_inputs(records: pd.DataFrame, seed=8):
     dist["production_t"] = dist.pop("wh") * rng.uniform(0.9, 1.1, len(dist))
     dist["source"] = DEMO
 
+    lost = r.assign(wl=r["weight"] * r["loss_total_kg"].fillna(0) / 1000)
+    share = lost.groupby(["crop", "season"], as_index=False)[["wl", "wh"]].sum()
+    share["loss_share_pct"] = 100 * share["wl"] / share["wh"] * rng.uniform(0.9, 1.1, len(share))
+    share = share[["crop", "season", "loss_share_pct"]].assign(source=DEMO)
+
     uv = []
     for crop, p in PRICE.items():
         for d in DISTRICT_LIST:
@@ -76,7 +81,7 @@ def make_inputs(records: pd.DataFrame, seed=8):
     for area, g in [("Urban", 0.010), ("Rural", 0.012), ("All Rwanda", 0.011)]:
         idx = 100 * np.cumprod(1 + g + rng.normal(0, 0.006, len(months)))
         cpi += [{"month": m, "area": area, "food_index": float(v)} for m, v in zip(months, idx)]
-    return nat, dist, uv, pd.DataFrame(cpi)
+    return nat, dist, uv, pd.DataFrame(cpi), share
 
 
 def make_demo_geojson():
@@ -96,9 +101,10 @@ def write_all():
         p.mkdir(parents=True, exist_ok=True)
     rec = make_crop_records()
     rec.to_parquet(INTERIM / "crop_records.parquet", index=False)
-    nat, dist, uv, cpi = make_inputs(rec)
+    nat, dist, uv, cpi, share = make_inputs(rec)
     nat.to_csv(INTERIM / "published_national.csv", index=False)
     dist.to_csv(INTERIM / "published_district.csv", index=False)
+    share.to_csv(INTERIM / "published_loss_share.csv", index=False)
     uv.to_parquet(INTERIM / "unit_values.parquet", index=False)
     cpi.to_csv(INTERIM / "cpi.csv", index=False)
     gj = PUBLIC / "districts.geojson"
