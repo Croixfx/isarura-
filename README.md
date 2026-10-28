@@ -6,11 +6,18 @@ NISR 2026 Big Data Hackathon, Track 1: Agricultural Productivity.
 Team: NIYONKURU Jean De La Croix, Chadia.
 
 > **Status:** the app currently shows **synthetic demo data** while the NISR microdata pipeline is
-> being connected. A banner in the app says so. See [TASKS.md](docs/internal/TASKS.md).
+> being connected. A banner in the app says so. Real NISR inputs already in the repo: published
+> production by crop and season (SAS 2025-2026 reports) and the CPI food index.
 
-- Live app: TODO
-- Backup: TODO
-- Demo video: TODO
+- Live app: not deployed yet (to be added before submission)
+- Backup: not deployed yet
+- Demo video: not recorded yet
+
+## Why now
+
+NISR's September 2026 CPI shows food prices up **27.0%** in the year in rural areas (20.9% urban, 25.2%
+nationally), and rural food prices rose **10.6%** in September alone. Every tonne of food lost after
+harvest is worth more than it was a year ago.
 
 ## What it does
 
@@ -49,6 +56,9 @@ With NISR access: put SAS files in `data/raw/`, fill `data/inputs/`, then `pytho
 ## Method in brief
 
 Design-based estimation with NISR survey weights; reconciliation with NISR published production;
+extrapolation of the latest 2025 loss rates to NISR's published 2026 seasons (labelled as such);
+prices from EICV7 unit values rolled forward with the NISR rural food CPI; 2,400 kcal per adult per day
+(EICV7 Methodological Note);
 cluster-bootstrap 95% intervals; small-sample flags (fewer than 10 farmers). Machine learning is not
 used to produce any estimate. Details on the app's Methods page and in `docs/methods.md`.
 
@@ -63,7 +73,9 @@ terms on the team's machines only.
 
 ## Declarations
 
-- **Original work:** TODO
-- **AI use:** TODO (which tools, for what)
-- **Intellectual property:** TODO (transfer to NISR per competition rules)
+- **Original work:** TODO (Croix to confirm: the team's own design and code, built for this hackathon)
+- **AI use:** Claude Code (Anthropic) was used as a coding assistant for scaffolding, refactoring, tests and
+  documentation. The team chose the methods and sources and checked the numbers. No machine-learning
+  model produces any estimate.
+- **Intellectual property:** TODO (transfer to NISR per competition rules; check the rules text)
 - **Sources:** see `docs/data_sources.md`
