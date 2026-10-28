@@ -14,7 +14,7 @@ from pipeline.step05_value_meals import latest_seasons
 def test_published_national_contract():
     pub = check(pd.read_csv(INPUTS / "published_national.csv"), "published_national")
     assert set(pub["crop"]) == set(CROPS)
-    assert set(pub["season"]) == {"2025A", "2025B", "2026A", "2026B"}
+    assert set(pub["season"]) == {f"{y}{l}" for y in (2024, 2025) for l in "ABC"} | {"2026A", "2026B"}
     assert not pub.duplicated(["crop", "season"]).any()
 
 
@@ -54,3 +54,32 @@ def test_latest_seasons_uses_same_letter_rate():
     assert a["value_rwf"] == pytest.approx(a["tonnes_lost"] * 1000 * 200)
     assert "SAS microdata season 2025A" in a["source"]
     check(out, "loss_latest")
+
+
+def test_published_district_sums_to_national():
+    nat = pd.read_csv(INPUTS / "published_national.csv")
+    dist = check(pd.read_csv(INPUTS / "published_district.csv"), "published_district")
+    assert dist["district"].nunique() == 30
+    assert not dist.duplicated(["crop", "district", "season"]).any()
+    s = dist.groupby(["crop", "season"], as_index=False)["production_t"].sum().merge(
+        nat, on=["crop", "season"], suffixes=("_d", "_n"))
+    assert len(s) > 0
+    assert ((s["production_t_d"] - s["production_t_n"]).abs() / s["production_t_n"].clip(lower=1) < 1e-3).all()
+
+
+def test_published_loss_share_contract():
+    sh = check(pd.read_csv(INPUTS / "published_loss_share.csv"), "published_loss_share")
+    assert sh["loss_share_pct"].between(0, 10).all()
+    assert not sh.duplicated(["crop", "season"]).any()
+
+
+def test_validate_loss_share_compares_pct_to_rate():
+    from isarura_core.estimators import validate_loss_share
+    rates = pd.DataFrame({"crop": ["maize", "maize"], "district": ["National", "Huye"], "stage": "total",
+                          "season": "2025A", "loss_rate": [0.004, 0.5]})
+    share = pd.DataFrame({"crop": ["maize", "maize"], "season": ["2025A", "2026A"],
+                          "loss_share_pct": [0.35, 0.3], "source": "x"})
+    v = check(validate_loss_share(rates, share), "validation_loss")
+    assert len(v) == 1                                  # 2026A has no microdata; district rows ignored
+    assert v["our_estimate_pct"].iloc[0] == pytest.approx(0.4)
+    assert v["difference_pp"].iloc[0] == pytest.approx(0.05)

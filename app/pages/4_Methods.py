@@ -25,6 +25,25 @@ st.plotly_chart(fig, width="stretch")
 st.dataframe(v2.drop(columns="crop"), hide_index=True, width="stretch")
 download(v, "validation")
 
+st.subheader("We also reproduce NISR's published post-harvest loss share")
+vl = load("validation_loss")
+if len(vl):
+    st.markdown(f"NISR publishes post-harvest losses as a percentage of production. Our national loss rate from the "
+                f"microdata differs from it by a median of **{vl['difference_pp'].abs().median():.2f} percentage points** "
+                f"across {len(vl)} crop-season pairs. " + BADGE["official"] + " vs " + BADGE["calculated"])
+    vl2 = vl.assign(Crop=vl["crop"].map(crop_name))
+    fig2 = px.scatter(vl2, x="nisr_published_pct", y="our_estimate_pct", hover_data=["Crop", "season"],
+                      labels={"nisr_published_pct": "NISR published loss (% of production)",
+                              "our_estimate_pct": "Isarura estimate (%)"})
+    m2 = float(vl[["nisr_published_pct", "our_estimate_pct"]].max().max())
+    fig2.add_shape(type="line", x0=0, y0=0, x1=m2, y1=m2, line=dict(dash="dot", color="#999"))
+    fig2.update_layout(height=340, margin=dict(l=0, r=0, t=10, b=0))
+    st.plotly_chart(fig2, width="stretch")
+    st.dataframe(vl2.drop(columns="crop"), hide_index=True, width="stretch")
+    download(vl, "validation_loss")
+else:
+    st.info("No published loss shares overlap the seasons with microdata yet.")
+
 st.header("2. How each number is made")
 st.markdown(f"""
 | Step | What we do |

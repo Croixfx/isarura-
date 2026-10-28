@@ -33,6 +33,16 @@ def validate_totals(records: pd.DataFrame, published: pd.DataFrame,
     return v
 
 
+def validate_loss_share(rates: pd.DataFrame, share: pd.DataFrame) -> pd.DataFrame:
+    """Compare our national total loss rate (x100) with NISR's published post-harvest loss share (%)."""
+    nat = rates[(rates["district"] == "National") & (rates["stage"] == "total")]
+    ours = nat[["crop", "season", "loss_rate"]].assign(our_estimate_pct=nat["loss_rate"] * 100)
+    v = share.rename(columns={"loss_share_pct": "nisr_published_pct"})[["crop", "season", "nisr_published_pct"]]
+    v = v.merge(ours[["crop", "season", "our_estimate_pct"]], on=["crop", "season"], how="inner")
+    v["difference_pp"] = v["our_estimate_pct"] - v["nisr_published_pct"]
+    return v
+
+
 def _boot_ratio(num: np.ndarray, den: np.ndarray, rng, n_boot: int):
     """num/den are per-cluster weighted sums. Returns (low, high) of the bootstrap ratio."""
     m = len(num)

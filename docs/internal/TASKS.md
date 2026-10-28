@@ -82,7 +82,7 @@ Stretch (only if all above is done): Kinyarwanda headline labels (FR-15).
 ## Croix: statistics, validation, story, submission
 
 ### Wed 28 Oct (today)
-- [x] **C1. Gate 3 inputs.** (done for 2025A/B and 2026A/B; still to add: 2025C, and 2024 seasons if using SAS 2024; district table from Tables 15 and 13) From the SAS 2025 annual report, type national production by crop and
+- [x] **C1. Gate 3 inputs.** (done: national production 2024A-2026B, district production 2025A/B/C and 2026A/B, and NISR loss shares) From the SAS 2025 annual report, type national production by crop and
       season into `data/inputs/published_national.csv` (header already there; put the table number
       in `source`). Do the district table too if the report has it (`published_district.csv`).
 - [x] **C2. CPI.** (typed from NISR CPI reports into `data/inputs/cpi.csv`; xls upgrade optional) Download `CPI_time_series_September_2026.xls`, write `cpi_from_xls()` in

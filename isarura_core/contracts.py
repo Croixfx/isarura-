@@ -22,6 +22,9 @@ CONTRACTS = {
     # ---- hand-built inputs (data/inputs), copied from NISR publications ----------
     # National production by crop x season from the SAS report (Croix).
     "published_national": {"crop": "str", "season": "str", "production_t": "num", "source": "str"},
+    # NISR official post-harvest loss as % of production, by crop x season ("Use of production by
+    # farmers" tables). Used to validate our loss rates (Croix).
+    "published_loss_share": {"crop": "str", "season": "str", "loss_share_pct": "num", "source": "str"},
     # District production by crop x season from the SAS report (Croix). May be partial.
     "published_district": {"crop": "str", "district": "str", "season": "str", "production_t": "num", "source": "str"},
     # Unit values from EICV7 food records, one row per household item (private, Croix).
@@ -31,6 +34,8 @@ CONTRACTS = {
     # ---- public (data/public) -----------------------------------------------------
     "validation": {"crop": "str", "season": "str", "nisr_published_t": "num", "our_estimate_t": "num",
                    "difference_pct": "num", "within_tolerance": "bool"},
+    "validation_loss": {"crop": "str", "season": "str", "nisr_published_pct": "num",
+                        "our_estimate_pct": "num", "difference_pp": "num"},
     "loss_rates": {"crop": "str", "district": "str", "season": "str", "stage": "str",
                    "loss_rate": "num", "ci_low": "num", "ci_high": "num",
                    "n_farmers": "int", "flag_small_n": "bool"},
@@ -50,7 +55,7 @@ CONTRACTS = {
                        "avoidable_value_rwf": "num", "rank": "int", "assumption_set": "str"},
 }
 
-PUBLIC_TABLES = ["validation", "loss_rates", "prices", "loss_value", "loss_latest", "priority_index"]
+PUBLIC_TABLES = ["validation", "validation_loss", "loss_rates", "prices", "loss_value", "loss_latest", "priority_index"]
 
 _KIND_CHECK = {
     "str": lambda s: pd.api.types.is_string_dtype(s) or pd.api.types.is_object_dtype(s),
