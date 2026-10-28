@@ -13,6 +13,15 @@ from .common import Paths, log
 
 def run(p: Paths, n_boot: int = 200):
     rec = pd.read_parquet(p.crop_records)
+    
+    # --- FIX FOR 2025 DATA GAP ---
+    # SAS 2025 does not have a single "total loss" question (s2q39).
+    # We calculate it by summing the individual stages.
+    stages = ["loss_transport_kg", "loss_storage_kg", "loss_processing_kg", "loss_packaging_kg", "loss_sales_kg"]
+    calculated_total = rec[stages].sum(axis=1)
+    rec["loss_total_kg"] = rec["loss_total_kg"].fillna(calculated_total)
+    # ------------------------------
+
     dist = loss_rates(rec, n_boot=n_boot)
     nat = loss_rates(rec.assign(district="National"), n_boot=n_boot)
     rates = check(pd.concat([dist, nat], ignore_index=True), "loss_rates")
@@ -37,12 +46,17 @@ def run(p: Paths, n_boot: int = 200):
     # Where NISR publishes no district figure, fall back to our weighted estimate and say so.
     pub_path = p.inputs / "published_district.csv"
     ours = weighted_production(rec, by=("crop", "district", "season")).rename(columns={"our_estimate_t": "survey_t"})
+    
+    if pub_path.exists():
+        # ADDED dtype={'production_t': float} to prevent TypeError on typos in the CSV
+        pub = check(pd.read_csv(pub_path, dtype={'production_t': float}), "published_district")[["crop", "district", "season", "production_t"]]
     pub = pd.read_csv(pub_path) if pub_path.exists() else pd.DataFrame()
     if not pub.empty:
         pub = check(pub, "published_district")[["crop", "district", "season", "production_t"]]
         base = ours.merge(pub, on=["crop", "district", "season"], how="left")
     else:
         base = ours.assign(production_t=float("nan"))
+        
     base["production_base"] = base["production_t"].notna().map({True: "NISR published", False: "survey estimate"})
     base["production_t"] = base["production_t"].fillna(base["survey_t"])
 
