@@ -41,11 +41,16 @@ CONTRACTS = {
                    "price_low": "num", "price_central": "num", "price_high": "num",
                    "value_low_rwf": "num", "value_rwf": "num", "value_high_rwf": "num",
                    "kcal": "num", "adult_years": "num", "flag_small_n": "bool"},
+    # Latest official seasons (published production newer than the microdata), national level:
+    # loss rate from the same season letter in the latest microdata year x published production.
+    "loss_latest": {"crop": "str", "season": "str", "rate_from_season": "str", "production_t": "num",
+                    "loss_rate": "num", "tonnes_lost": "num", "value_low_rwf": "num", "value_rwf": "num",
+                    "value_high_rwf": "num", "kcal": "num", "adult_years": "num", "source": "str"},
     "priority_index": {"district": "str", "crop": "str", "loss_value_rwf": "num",
                        "avoidable_value_rwf": "num", "rank": "int", "assumption_set": "str"},
 }
 
-PUBLIC_TABLES = ["validation", "loss_rates", "prices", "loss_value", "priority_index"]
+PUBLIC_TABLES = ["validation", "loss_rates", "prices", "loss_value", "loss_latest", "priority_index"]
 
 _KIND_CHECK = {
     "str": lambda s: pd.api.types.is_string_dtype(s) or pd.api.types.is_object_dtype(s),
@@ -60,7 +65,8 @@ def check(df: pd.DataFrame, name: str) -> pd.DataFrame:
     missing = [c for c in spec if c not in df.columns]
     if missing:
         raise ValueError(f"{name}: missing columns {missing}")
-    bad = [c for c, k in spec.items() if not _KIND_CHECK[k](df[c])]
+    # an empty table (e.g. header-only CSV not filled yet) has no meaningful dtypes
+    bad = [] if df.empty else [c for c, k in spec.items() if not _KIND_CHECK[k](df[c])]
     if bad:
         raise TypeError(f"{name}: wrong dtype for {[(c, str(df[c].dtype), spec[c]) for c in bad]}")
     if "district" in spec and name not in ("unit_values",):

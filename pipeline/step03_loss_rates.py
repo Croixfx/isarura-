@@ -24,8 +24,9 @@ def run(p: Paths, n_boot: int = 200):
     # Where NISR publishes no district figure, fall back to our weighted estimate and say so.
     pub_path = p.inputs / "published_district.csv"
     ours = weighted_production(rec, by=("crop", "district", "season")).rename(columns={"our_estimate_t": "survey_t"})
-    if pub_path.exists():
-        pub = check(pd.read_csv(pub_path), "published_district")[["crop", "district", "season", "production_t"]]
+    pub = pd.read_csv(pub_path) if pub_path.exists() else pd.DataFrame()
+    if not pub.empty:
+        pub = check(pub, "published_district")[["crop", "district", "season", "production_t"]]
         base = ours.merge(pub, on=["crop", "district", "season"], how="left")
     else:
         base = ours.assign(production_t=float("nan"))

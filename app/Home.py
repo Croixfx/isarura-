@@ -23,6 +23,18 @@ c2.caption(f"Range {rwf(tot['value_low_rwf'].sum())} to {rwf(tot['value_high_rwf
 c3.caption("Calorie equivalence only. It does not mean recovered food would reach any household.")
 st.markdown(BADGE["calculated"] + f" Seasons: {', '.join(seasons)}")
 
+latest = load("loss_latest")
+if len(latest):
+    st.subheader("The latest harvests")
+    cols = st.columns(latest["season"].nunique())
+    for col, (s, g) in zip(cols, latest.groupby("season")):
+        col.metric(f"Season {s}: estimated loss", tonnes(g["tonnes_lost"].sum()))
+        col.caption(f"{rwf(g['value_rwf'].sum())} at {meta['price_month']} prices. NISR published production "
+                    f"for {s} x loss rates from SAS microdata season {g['rate_from_season'].iloc[0]}.")
+    st.markdown(BADGE["official"] + " production  " + BADGE["calculated"] + " loss and value")
+    st.caption("Extrapolation: the newest microdata is from 2025, so 2026 losses assume the same loss rates "
+               "as the matching 2025 season.")
+
 st.divider()
 left, right = st.columns([3, 2])
 with left:

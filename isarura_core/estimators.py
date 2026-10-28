@@ -24,6 +24,8 @@ def weighted_production(records: pd.DataFrame, by=("crop", "season")) -> pd.Data
 def validate_totals(records: pd.DataFrame, published: pd.DataFrame,
                     tol_pct: float = VALIDATION_TOLERANCE_PCT) -> pd.DataFrame:
     ours = weighted_production(records, by=("crop", "season"))
+    # only seasons we have microdata for (published 2026 rows are used later, not validated)
+    published = published[published["season"].isin(ours["season"].unique())]
     v = published.rename(columns={"production_t": "nisr_published_t"})[["crop", "season", "nisr_published_t"]]
     v = v.merge(ours, on=["crop", "season"], how="left")
     v["difference_pct"] = 100 * (v["our_estimate_t"] - v["nisr_published_t"]) / v["nisr_published_t"]

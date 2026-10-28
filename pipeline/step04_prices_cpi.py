@@ -3,8 +3,8 @@
 Inputs:
   data/interim/unit_values.parquet  (from EICV7 food module: crop, district, value/quantity)
       TODO(Croix): write load_eicv7_unit_values() once the EICV7 files are downloaded.
-  data/inputs/cpi.csv  (month 'YYYY-MM', area, food_index) from CPI_time_series_September_2026.xls
-      TODO(Croix): write cpi_from_xls() - needs xlrd (pip install xlrd) for the .xls engine.
+  data/inputs/cpi.csv  (month 'YYYY-MM', area, food_index, source) typed from the NISR CPI reports
+      (Annexes 1-3). Optional upgrade: full monthly series from CPI_time_series_September_2026.xls.
 Output: prices.parquet
 """
 import pandas as pd
@@ -14,7 +14,7 @@ from isarura_core.conversions import cpi_factor, roll_forward, trimmed_price_tab
 
 from .common import Paths, log
 
-EICV7_BASE_MONTH = "2024-01"   # TODO(Croix): mid-point of EICV7 fieldwork; confirm and cite.
+EICV7_BASE_MONTH = "2024-01"   # NISR EICV7 Methodological Note p.29-30: consumption valued in Jan 2024 national prices.
 CPI_AREA = "Rural"             # farm losses -> rural food index
 
 
