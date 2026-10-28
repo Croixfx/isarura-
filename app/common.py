@@ -53,7 +53,17 @@ def season_filter(meta: dict, key: str = "seasons") -> list:
     return picked or default
 
 
+DETAIL_CAPTION = "District and stage detail from SAS microdata; NISR publishes national figures only."
+
+
+def prices_ready(meta: dict) -> bool:
+    """Rwf values need EICV7 prices; until then value columns are empty and the app shows tonnes."""
+    return bool(meta.get("prices_available", True))
+
+
 def rwf(x: float) -> str:
+    if pd.isna(x):
+        return "n/a"
     if abs(x) >= 1e9:
         return f"{x/1e9:,.1f} bn Rwf"
     if abs(x) >= 1e6:
@@ -62,6 +72,8 @@ def rwf(x: float) -> str:
 
 
 def tonnes(x: float) -> str:
+    if pd.isna(x):
+        return "n/a"
     return f"{x:,.0f} t"
 
 

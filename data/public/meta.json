@@ -1,12 +1,18 @@
 {
-  "demo": true,
+  "demo": false,
   "generated": "2026-10-28",
-  "price_month": "2026-09",
+  "prices_available": false,
+  "price_month": null,
   "min_n": 10,
   "seasons": [
     "2024A",
-    "2024B",
+    "2025A"
+  ],
+  "official_seasons": [
     "2025A",
-    "2025B"
+    "2025B",
+    "2025C",
+    "2026A",
+    "2026B"
   ]
 }

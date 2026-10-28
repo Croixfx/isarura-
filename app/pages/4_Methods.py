@@ -48,10 +48,11 @@ st.header("2. How each number is made")
 st.markdown(f"""
 | Step | What we do |
 |---|---|
+| National headline | NISR published production x NISR published post-harvest loss share, for every season and crop NISR publishes both (2025A to 2026B). No microdata involved. |
 | Loss rate | Weighted ratio: sum(weight x kg lost) / sum(weight x kg harvested), per crop, district, season and stage, using NISR survey weights. |
 | Uncertainty | 95% interval from resampling survey clusters (200 replicates). Cells with fewer than {meta['min_n']} farmers are flagged and greyed. |
 | Tonnes | Loss rate x NISR published district production, so tonnes reconcile with official totals. |
-| Price | Median EICV7 household unit value per crop and district (trimmed), rolled forward to {meta['price_month']} with the rural CPI food index. Low/high = 25th/75th percentile. |
+| Price (when loaded) | Median EICV7 household unit value per crop and district (trimmed), rolled forward to {meta['price_month']} with the rural CPI food index. Low/high = 25th/75th percentile. |
 | Meals | Tonnes x kcal per kg (FAO/INFOODS), divided by the daily adult requirement x 365. |
 | Priority | Default: rank district-crop pairs by value lost. Scenario: user-chosen share avoidable per stage and cost per tonne. |
 """)

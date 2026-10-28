@@ -2,17 +2,23 @@
 import plotly.express as px
 import streamlit as st
 
-from common import BADGE, crop_name, download, geojson, load, rwf, season_filter, setup
+from common import (BADGE, DETAIL_CAPTION, crop_name, download, geojson, load, prices_ready, rwf, season_filter,
+                    setup, tonnes)
 from isarura_core.priority import priority
 
 meta = setup("Map")
 seasons = season_filter(meta)
 st.title("Where is the loss concentrated?")
+st.caption(DETAIL_CAPTION)
+has_prices = prices_ready(meta)
 
 crops = sorted(load("loss_value")["crop"].unique())
 c1, c2 = st.columns(2)
 crop = c1.selectbox("Crop", ["All crops"] + crops, format_func=lambda c: c if c == "All crops" else crop_name(c))
-metric = c2.radio("Show", ["Value lost (Rwf)", "Tonnes lost", "Loss rate", "Priority rank"], horizontal=True)
+metric = c2.radio("Show", ["Value lost (Rwf)", "Tonnes lost", "Loss rate", "Priority rank"] if has_prices
+                  else ["Tonnes lost", "Loss rate"], horizontal=True)
+if not has_prices:
+    st.caption("Rwf values and the priority rank need EICV7 prices, which are not loaded yet.")
 
 lv = load("loss_value")
 lv = lv[lv["season"].isin(seasons) & (lv["stage"] == "total")]
@@ -21,18 +27,20 @@ if crop != "All crops":
 d = lv.groupby("district", as_index=False).agg(value_rwf=("value_rwf", "sum"), tonnes_lost=("tonnes_lost", "sum"),
                                                 production_t=("production_t", "sum"))
 d["loss_rate"] = d["tonnes_lost"] / d["production_t"]
-pr = priority(load("loss_value"), seasons=seasons)
-if crop != "All crops":
-    pr = pr[pr["crop"] == crop]
-d = d.merge(pr.groupby("district", as_index=False)["rank"].min().rename(columns={"rank": "best_rank"}),
-            on="district", how="left")
+if has_prices:
+    pr = priority(load("loss_value"), seasons=seasons)
+    if crop != "All crops":
+        pr = pr[pr["crop"] == crop]
+    d = d.merge(pr.groupby("district", as_index=False)["rank"].min().rename(columns={"rank": "best_rank"}),
+                on="district", how="left")
 
 col = {"Value lost (Rwf)": "value_rwf", "Tonnes lost": "tonnes_lost", "Loss rate": "loss_rate",
        "Priority rank": "best_rank"}[metric]
 fig = px.choropleth(d, geojson=geojson(), locations="district", featureidkey="properties.district", color=col,
                     color_continuous_scale="cividis_r" if col == "best_rank" else "cividis",
                     hover_name="district",
-                    hover_data={"district": False, "value_rwf": ":,.0f", "tonnes_lost": ":,.0f", "loss_rate": ":.1%"},
+                    hover_data={"district": False, **({"value_rwf": ":,.0f"} if has_prices else {}),
+                                "tonnes_lost": ":,.0f", "loss_rate": ":.1%"},
                     labels={"value_rwf": "Value lost (Rwf)", "tonnes_lost": "Tonnes lost", "loss_rate": "Loss rate",
                             "best_rank": "Best priority rank"})
 
@@ -49,8 +57,12 @@ try:
     picked = pts[0].get("location") if pts else None
 except AttributeError:
     pass
-top = d.sort_values("value_rwf", ascending=False).iloc[0]
-st.caption(f"Highest value lost: **{top['district']}** ({rwf(top['value_rwf'])}). Click a district to open it.")
+if has_prices:
+    top = d.sort_values("value_rwf", ascending=False).iloc[0]
+    st.caption(f"Highest value lost: **{top['district']}** ({rwf(top['value_rwf'])}). Click a district to open it.")
+else:
+    top = d.sort_values("tonnes_lost", ascending=False).iloc[0]
+    st.caption(f"Most food lost: **{top['district']}** ({tonnes(top['tonnes_lost'])}). Click a district to open it.")
 
 district = st.selectbox("Open a district profile", sorted(d["district"]),
                         index=sorted(d["district"]).index(picked) if picked in set(d["district"]) else 0)

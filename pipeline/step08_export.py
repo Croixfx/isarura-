@@ -27,7 +27,12 @@ def privacy_scan():
 def run(p: Paths):
     PUBLIC.mkdir(parents=True, exist_ok=True)
     for name in PUBLIC_TABLES:
-        df = read_out(p, name)
+        if p.out(name).exists():
+            df = read_out(p, name)
+        else:
+            # step not run / skipped (e.g. no EICV7 prices yet): publish an empty table, never a stale one
+            df = pd.DataFrame({c: pd.Series(dtype="object") for c in CONTRACTS[name]})
+            log("08", f"{name}: not produced, exporting an empty table")
         leak = FORBIDDEN_COLS & set(df.columns)
         if leak:
             raise SystemExit(f"PRIVACY: {name} has farm-level columns {leak}")
@@ -36,12 +41,15 @@ def run(p: Paths):
     sc = read_out(p, "stage_consistency")
     sc.to_csv(PUBLIC / "stage_consistency.csv", index=False, float_format="%.6g")
     prices = pd.read_csv(PUBLIC / "prices.csv")
+    official = pd.read_csv(PUBLIC / "loss_official.csv")
     meta = {
         "demo": p.synthetic,
         "generated": date.today().isoformat(),
-        "price_month": str(prices["month"].iloc[0]),
+        "prices_available": bool(len(prices)),
+        "price_month": str(prices["month"].iloc[0]) if len(prices) else None,
         "min_n": MIN_N,
         "seasons": sorted(pd.read_csv(PUBLIC / "loss_value.csv")["season"].unique().tolist()),
+        "official_seasons": sorted(official["season"].unique().tolist()),
     }
     (PUBLIC / "meta.json").write_text(json.dumps(meta, indent=2))
     privacy_scan()

@@ -51,11 +51,17 @@ CONTRACTS = {
     "loss_latest": {"crop": "str", "season": "str", "rate_from_season": "str", "production_t": "num",
                     "loss_rate": "num", "tonnes_lost": "num", "value_low_rwf": "num", "value_rwf": "num",
                     "value_high_rwf": "num", "kcal": "num", "adult_years": "num", "source": "str"},
+    # National headline: NISR published production x NISR published post-harvest loss share, by
+    # crop x season. Every season NISR publishes both for. value_* columns are extras (empty until
+    # prices are available).
+    "loss_official": {"crop": "str", "season": "str", "production_t": "num", "loss_share_pct": "num",
+                      "tonnes_lost": "num", "kcal": "num", "adult_years": "num", "source": "str"},
     "priority_index": {"district": "str", "crop": "str", "loss_value_rwf": "num",
                        "avoidable_value_rwf": "num", "rank": "int", "assumption_set": "str"},
 }
 
-PUBLIC_TABLES = ["validation", "validation_loss", "loss_rates", "prices", "loss_value", "loss_latest", "priority_index"]
+PUBLIC_TABLES = ["validation", "validation_loss", "loss_rates", "prices", "loss_value", "loss_latest", "loss_official",
+                 "priority_index"]
 
 _KIND_CHECK = {
     "str": lambda s: pd.api.types.is_string_dtype(s) or pd.api.types.is_object_dtype(s),

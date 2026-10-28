@@ -61,5 +61,35 @@ def value_and_meals(tonnes: pd.DataFrame, prices: pd.DataFrame,
     return v
 
 
+OFFICIAL_VALUE_COLS = ["value_low_rwf", "value_rwf", "value_high_rwf"]
+
+
+def official_loss(national: pd.DataFrame, share: pd.DataFrame, prices: pd.DataFrame | None = None,
+                  kcal_per_adult_day: float = KCAL_PER_ADULT_DAY,
+                  kcal_per_kg: dict = KCAL_PER_KG) -> pd.DataFrame:
+    """NISR published production x NISR published post-harvest loss share (% of production).
+
+    One row per crop x season present in BOTH tables. Value columns use the national (median of
+    district) price per crop and are NaN when `prices` is None or empty.
+    """
+    m = (national.rename(columns={"source": "src_production"})[["crop", "season", "production_t", "src_production"]]
+         .merge(share.rename(columns={"source": "src_loss"})[["crop", "season", "loss_share_pct", "src_loss"]],
+                on=["crop", "season"], how="inner"))
+    m["tonnes_lost"] = m["production_t"] * m["loss_share_pct"] / 100.0
+    kg = m["tonnes_lost"] * 1000.0
+    m["kcal"] = kg * m["crop"].map(kcal_per_kg).astype(float)
+    m["adult_years"] = m["kcal"] / (kcal_per_adult_day * 365.0)
+    pcols = ["price_low", "price_central", "price_high"]
+    if prices is not None and len(prices):
+        m = m.merge(prices.groupby("crop", as_index=False)[pcols].median(), on="crop", how="left")
+    else:
+        for c in pcols:
+            m[c] = np.nan
+    m["value_low_rwf"], m["value_rwf"], m["value_high_rwf"] = (kg * m[c] for c in pcols)
+    m["source"] = "Production: " + m["src_production"].astype(str) + "; loss share: " + m["src_loss"].astype(str)
+    cols = ["crop", "season", "production_t", "loss_share_pct", "tonnes_lost", "kcal", "adult_years", "source"]
+    return m[cols + OFFICIAL_VALUE_COLS].sort_values(["season", "crop"]).reset_index(drop=True)
+
+
 def adult_years(kcal: float, kcal_per_adult_day: float = KCAL_PER_ADULT_DAY) -> float:
     return kcal / (kcal_per_adult_day * 365.0) if kcal_per_adult_day else np.nan

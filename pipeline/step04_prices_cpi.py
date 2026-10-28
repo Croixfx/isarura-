@@ -23,7 +23,15 @@ def load_eicv7_unit_values():
 
 
 def run(p: Paths):
-    uv = pd.read_parquet(p.unit_values) if p.unit_values.exists() else load_eicv7_unit_values()
+    if p.unit_values.exists():
+        uv = pd.read_parquet(p.unit_values)
+    else:
+        try:
+            uv = load_eicv7_unit_values()
+        except NotImplementedError:
+            log("04", "SKIPPED: EICV7 unit values not available; no prices.parquet written. "
+                      "Later steps leave value columns empty.")
+            return
     uv = check(uv, "unit_values")
     cpi = check(pd.read_csv(p.inputs / "cpi.csv", dtype={"month": str}), "cpi")
     latest = cpi["month"].max()

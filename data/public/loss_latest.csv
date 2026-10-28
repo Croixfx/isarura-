@@ -1,1 +1,9 @@
 crop,season,rate_from_season,production_t,loss_rate,tonnes_lost,value_low_rwf,value_rwf,value_high_rwf,kcal,adult_years,source
+beans,2026A,2025A,229396,0.0036548,838.395,,,,2.85893e+09,3263.62,"NISR SAS 2026 Season A Final Report, Table 6 (p.30); loss rate from SAS microdata season 2025A"
+cassava,2026A,2025A,569110,0.000747851,425.61,,,,6.80975e+08,777.369,"NISR SAS 2026 Season A Final Report, Table 6 (p.30); loss rate from SAS microdata season 2025A"
+cooking_banana,2026A,2025A,610244,0.00180132,1099.24,,,,1.34108e+09,1530.91,"NISR SAS 2026 Season A Final Report, Table 6 (p.30); loss rate from SAS microdata season 2025A"
+irish_potato,2026A,2025A,491564,0.0101885,5008.32,,,,3.85641e+09,4402.29,"NISR SAS 2026 Season A Final Report, Table 6 (p.30); loss rate from SAS microdata season 2025A"
+maize,2026A,2025A,488622,0.00568404,2777.35,,,,1.01373e+10,11572.3,"NISR SAS 2026 Season A Final Report, Table 6 (p.30); loss rate from SAS microdata season 2025A"
+sorghum,2026A,2025A,50065,0.0148084,741.381,,,,2.51328e+09,2869.04,"NISR SAS 2026 Season A Final Report, Table 6 (p.30); loss rate from SAS microdata season 2025A"
+sweet_potato,2026A,2025A,675768,0.000838052,566.329,,,,4.87043e+08,555.985,"NISR SAS 2026 Season A Final Report, Table 6 (p.30); loss rate from SAS microdata season 2025A"
+wheat,2026A,2025A,3051,0.000835369,2.54871,,,,8.66562e+06,9.89226,"NISR SAS 2026 Season A Final Report, Table 6 (p.30); loss rate from SAS microdata season 2025A"
