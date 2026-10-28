@@ -83,3 +83,33 @@ def test_validate_loss_share_compares_pct_to_rate():
     assert len(v) == 1                                  # 2026A has no microdata; district rows ignored
     assert v["our_estimate_pct"].iloc[0] == pytest.approx(0.4)
     assert v["difference_pp"].iloc[0] == pytest.approx(0.05)
+
+
+# ---- cross-check against the NISR workbooks kept in data/inputs/nisr_tables (needs openpyxl) -------------
+LOSS_TABLES = [("SAS_2025_Annual_Tables", "Table 27", "2025A"), ("SAS_2025_Annual_Tables", "Table 28", "2025B"),
+               ("SAS_2025_Annual_Tables", "Table 29", "2025C"), ("Tables_2026_Season_A", "Table 16", "2026A"),
+               ("Tables_2026_Season_B", "Table 14", "2026B")]
+CROP_OF = {"Maize": "maize", "Sorghum": "sorghum", "Paddy rice": "rice", "Wheat": "wheat",
+           "Sweet potato": "sweet_potato", "Irish potato": "irish_potato", "Cassava": "cassava",
+           "Cooking banana": "cooking_banana"}
+
+
+@pytest.mark.parametrize("book,sheet,season", LOSS_TABLES)
+def test_loss_share_matches_nisr_workbook(book, sheet, season):
+    openpyxl = pytest.importorskip("openpyxl")
+    path = INPUTS / "nisr_tables" / f"{book}.xlsx"
+    if not path.exists():
+        pytest.skip("NISR workbook not present")
+    ws = openpyxl.load_workbook(path, read_only=True, data_only=True)[sheet]
+    rows = [r for r in ws.iter_rows(values_only=True) if any(c is not None for c in r)]
+    header = next(r for r in rows if "Crops" in r)
+    label, col = header.index("Crops"), header.index("Post harvesting losses")
+    sh = pd.read_csv(INPUTS / "published_loss_share.csv")
+    sh = sh[sh["season"] == season].set_index("crop")["loss_share_pct"]
+    checked = 0
+    for r in rows:
+        crop = CROP_OF.get(str(r[label]).strip())
+        if crop in sh.index and isinstance(r[col], (int, float)):
+            assert sh[crop] == pytest.approx(r[col], rel=1e-6), (sheet, crop)
+            checked += 1
+    assert checked >= 2   # season C covers only sweet potato, Irish potato and beans (beans are weighted, not checked)
