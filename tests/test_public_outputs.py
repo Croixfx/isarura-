@@ -23,9 +23,7 @@ def test_no_farm_level_columns(name):
 
 def test_rates_are_proportions():
     r = pd.read_csv(PUBLIC / "loss_rates.csv")
-    # tolerance: SAS 2024A has 126 records with negative loss_storage_kg (known step01 data issue,
-    # reported to Chadia), which pushes a few storage rates just below zero (worst: about -0.2%)
-    assert r["loss_rate"].dropna().between(-5e-3, 1).all()
+    assert r["loss_rate"].dropna().between(0, 1).all()
 
 
 def test_geojson_covers_all_districts():

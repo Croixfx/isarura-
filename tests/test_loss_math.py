@@ -85,3 +85,21 @@ def test_priority_default_and_scenario():
     s = priority(lv, a_k={"storage": 0.5})
     assert s.iloc[0]["district"] == "Huye"               # storage fix pays more in Huye
     assert s.iloc[0]["avoidable_value_rwf"] == pytest.approx(40.0)
+
+
+def test_negative_losses_become_missing_and_are_logged(capsys):
+    from pipeline.step01_load_sas import negatives_to_missing
+    df = pd.DataFrame({"season": ["2024A", "2024A", "2025A"],
+                       "loss_total_kg": [5.0, -1.0, 2.0], "loss_storage_kg": [-340.0, 0.0, 3.0],
+                       "loss_transport_kg": [0.0, 1.0, 2.0], "loss_processing_kg": [0.0, 0.0, 0.0],
+                       "loss_packaging_kg": [0.0, 0.0, 0.0], "loss_sales_kg": [0.0, 0.0, -2.0]})
+    out = negatives_to_missing(df)
+    assert out["loss_storage_kg"].isna().tolist() == [True, False, False]
+    assert out["loss_total_kg"].isna().tolist() == [False, True, False]
+    assert out["loss_sales_kg"].isna().tolist() == [False, False, True]
+    assert out["loss_transport_kg"].notna().all()               # untouched columns keep their values
+    assert out["loss_storage_kg"].iloc[2] == 3.0 and out["loss_total_kg"].iloc[0] == 5.0
+    assert (df["loss_storage_kg"].iloc[0] == -340.0)           # input frame is not modified
+    log = capsys.readouterr().out
+    assert "2024A" in log and "loss_storage_kg" in log and "1 negative" in log.replace("     1", "1")
+    assert "2025A" in log and "loss_sales_kg" in log

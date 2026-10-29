@@ -94,6 +94,24 @@ def load_year(year: str, vm: dict) -> pd.DataFrame:
     return out
 
 
+LOSS_COLS = [f"loss_{s}_kg" for s in STAGES] + ["loss_total_kg"]
+
+
+def negatives_to_missing(df: pd.DataFrame) -> pd.DataFrame:
+    """A quantity lost cannot be negative: set negative loss values to missing and log how many
+    per season and stage (SAS 2024A has 126 negative loss_storage_kg values, down to -340 kg)."""
+    df = df.copy()
+    for season, g in df.groupby("season"):
+        for c in LOSS_COLS:
+            neg = g[c] < 0
+            if neg.any():
+                log("01", f"{season}: {int(neg.sum()):>6} negative {c} values ({neg.mean():.2%} of records) "
+                          f"set to missing (min {g[c].min():,.0f} kg)")
+    for c in LOSS_COLS:
+        df[c] = df[c].mask(df[c] < 0)
+    return df
+
+
 def run(p: Paths):
     if p.synthetic:
         log("01", "synthetic mode: crop_records already written by pipeline/synthetic.py")
@@ -103,7 +121,7 @@ def run(p: Paths):
         if not vm:
             log("01", f"{year}: no variable map yet, skipped")
             continue
-        df = load_year(year, vm)
+        df = negatives_to_missing(load_year(year, vm))
         n0 = len(df)
         dq = {
             "unmapped crop": df["crop"].isna(),
