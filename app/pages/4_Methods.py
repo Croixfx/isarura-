@@ -52,7 +52,7 @@ st.markdown(f"""
 | Loss rate | Weighted ratio: sum(weight x kg lost) / sum(weight x kg harvested), per crop, district, season and stage, using NISR survey weights. |
 | Uncertainty | 95% interval from resampling survey clusters (200 replicates). Cells with fewer than {meta['min_n']} farmers are flagged and greyed. |
 | Tonnes | Loss rate x NISR published district production, so tonnes reconcile with official totals. |
-| Price (when loaded) | Median EICV7 household unit value per crop and district (trimmed), rolled forward to {meta['price_month']} with the rural CPI food index. Low/high = 25th/75th percentile. |
+| Price | Median EICV7 household purchase unit value per crop and district (trimmed 5 to 95%; districts with fewer than 10 observations use the national median), rolled forward to {meta['price_month']} with the rural CPI food index. Low/high = 25th/75th percentile. |
 | Meals | Tonnes x kcal per kg (East African food composition table, see sources), divided by the daily adult requirement x 365. |
 | Priority | Default: rank district-crop pairs by value lost. Scenario: user-chosen share avoidable per stage and cost per tonne. |
 """)
@@ -74,7 +74,7 @@ st.header("5. Sources, data use and declarations")
 st.markdown("""
 - NISR Seasonal Agricultural Survey microdata 2024, 2025 (microdata.statistics.gov.rw, catalog 113, 124)
 - NISR SAS 2025 annual report (published production tables)
-- NISR EICV7 2023/24 (unit values, extreme poverty)
+- NISR EICV7 2023/24 (catalog 119), food purchases module (S8B): unit values = value / quantity for purchases reported in kg, visits 2 to 5. **Caveat:** these are household *purchase* prices, not farm-gate prices. Farm-gate values are typically lower, so the Rwf figures are an upper-side estimate of farmers' loss. Prices are rolled from January 2024 to the latest month with the rural food CPI; the file has no purchase dates, so the true average purchase month may be later than January 2024 (which would lower the rolled-forward prices). **Rice:** EICV7 prices milled rice but the SAS loss is paddy, so rice prices are multiplied by 0.65, an assumed paddy-to-milled rate that is not yet sourced.
 - NISR CPI time series, September 2026 (CC BY 4.0)
 - Calorie factors: West, Pepping & Temalilwa (1988), *The composition of foods commonly eaten in East Africa*, as reproduced in FAO (2001), *Improving Nutrition through Home Gardening*, Appendix 2. Per 100 g edible portion, adjusted for waste. **Assumptions:** rice is paddy, so the milled value is multiplied by 0.65 (an assumed paddy-to-milled rate, not yet sourced); cooking banana uses plantain and wheat uses parboiled wheat as proxies; cassava is assumed to be reported as fresh roots.
 - District boundaries: TODO (NISR geodata or geoBoundaries, with licence)

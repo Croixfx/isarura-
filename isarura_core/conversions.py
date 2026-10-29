@@ -5,6 +5,18 @@ import pandas as pd
 from .config import KCAL_PER_ADULT_DAY, KCAL_PER_KG
 
 
+NATIONAL = "National"
+
+
+def national_prices(prices: pd.DataFrame) -> pd.DataFrame:
+    """One row per crop with low/central/high national prices: the explicit 'National' rows if the
+    table has them, otherwise the median across districts."""
+    pcols = ["price_low", "price_central", "price_high"]
+    if "district" in prices and (prices["district"] == NATIONAL).any():
+        return prices[prices["district"] == NATIONAL][["crop"] + pcols]
+    return prices.groupby("crop", as_index=False)[pcols].median()
+
+
 def trimmed_price_table(unit_values: pd.DataFrame, trim: float = 0.05, min_obs: int = 10) -> pd.DataFrame:
     """Median and IQR of EICV7 unit values per crop x district, after trimming extremes.
 
@@ -25,11 +37,12 @@ def trimmed_price_table(unit_values: pd.DataFrame, trim: float = 0.05, min_obs: 
     nat = uv.groupby("crop").apply(summ, include_groups=False).reset_index()
     dist = uv.groupby(["crop", "district"]).apply(summ, include_groups=False).reset_index()
     dist["source"] = "EICV7 unit values, district median"
+    nat = nat.assign(district=NATIONAL, source="EICV7 unit values, national")
     thin = dist["n_obs"] < min_obs
     dist.loc[thin, ["price_low", "price_central", "price_high"]] = (
         dist.loc[thin, ["crop"]].merge(nat, on="crop", how="left")[["price_low", "price_central", "price_high"]].to_numpy())
     dist.loc[thin, "source"] = "EICV7 unit values, national median (thin district)"
-    return dist
+    return pd.concat([dist, nat], ignore_index=True)
 
 
 def cpi_factor(cpi: pd.DataFrame, base_month: str, latest_month: str, area: str = "Rural") -> float:
@@ -81,7 +94,7 @@ def official_loss(national: pd.DataFrame, share: pd.DataFrame, prices: pd.DataFr
     m["adult_years"] = m["kcal"] / (kcal_per_adult_day * 365.0)
     pcols = ["price_low", "price_central", "price_high"]
     if prices is not None and len(prices):
-        m = m.merge(prices.groupby("crop", as_index=False)[pcols].median(), on="crop", how="left")
+        m = m.merge(national_prices(prices), on="crop", how="left")
     else:
         for c in pcols:
             m[c] = np.nan

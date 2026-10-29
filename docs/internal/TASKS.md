@@ -95,7 +95,7 @@ Stretch (only if all above is done): Kinyarwanda headline labels (FR-15).
 
 ### Thu 29 Oct
 - [ ] **C4. Loss rates on real data** (`--only 3`). Look at `stage_consistency`; decide `MIN_N`.
-- [ ] **C5. Prices.** Download EICV7, write `load_eicv7_unit_values()` (crop, district,
+- [x] **C5. Prices.** (done: EICV7 S8B unit values, rice x0.65, Sep-2026 rural CPI roll-forward) Download EICV7, write `load_eicv7_unit_values()` (crop, district,
       value/quantity per item), confirm `EICV7_BASE_MONTH`. Run `--only 4 5 6`.
 - [x] **C6. Replace placeholders** (kcal done: data/inputs/kcal_per_kg.csv; KCAL_PER_ADULT_DAY done) in `config.py`: `KCAL_PER_KG` from FAO/INFOODS (cite table and
       version), `KCAL_PER_ADULT_DAY` from the EICV7 poverty methodology note.

@@ -49,3 +49,16 @@ def test_value_columns_empty_when_no_prices():
     assert pd.read_csv(PUBLIC / "loss_value.csv")["value_rwf"].isna().all()
     assert pd.read_csv(PUBLIC / "loss_official.csv")["value_rwf"].isna().all()
     assert meta["official_seasons"]
+
+
+def test_values_ordered_and_present_when_prices_available():
+    meta = json.loads((PUBLIC / "meta.json").read_text())
+    if not meta.get("prices_available", True):
+        pytest.skip("no prices")
+    o = pd.read_csv(PUBLIC / "loss_official.csv")
+    ok = o["tonnes_lost"] > 0
+    assert o.loc[ok, ["value_low_rwf", "value_rwf", "value_high_rwf"]].notna().all().all()
+    assert (o["value_low_rwf"] <= o["value_rwf"]).all() and (o["value_rwf"] <= o["value_high_rwf"]).all()
+    p = pd.read_csv(PUBLIC / "prices.csv")
+    assert (p["district"] == "National").sum() == p["crop"].nunique()
+    assert not p[["price_low", "price_central", "price_high"]].isna().any().any()

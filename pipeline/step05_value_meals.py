@@ -8,7 +8,7 @@ import pandas as pd
 
 from isarura_core.config import KCAL_PER_ADULT_DAY, KCAL_PER_KG
 from isarura_core.contracts import CONTRACTS, check
-from isarura_core.conversions import official_loss, value_and_meals
+from isarura_core.conversions import national_prices, official_loss, value_and_meals
 
 from .common import Paths, log, read_out
 
@@ -40,8 +40,7 @@ def latest_seasons(p: Paths, rates: pd.DataFrame, prices: pd.DataFrame) -> pd.Da
     new["tonnes_lost"] = new["loss_rate"] * new["production_t"]
     kg = new["tonnes_lost"] * 1000
     if len(prices):
-        nat_price = prices.groupby("crop", as_index=False)[["price_low", "price_central", "price_high"]].median()
-        new = new.merge(nat_price, on="crop", how="left")
+        new = new.merge(national_prices(prices), on="crop", how="left")
     else:
         new = new.assign(price_low=float("nan"), price_central=float("nan"), price_high=float("nan"))
     new["value_low_rwf"] = kg * new["price_low"]

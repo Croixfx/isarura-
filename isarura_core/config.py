@@ -32,6 +32,9 @@ KCAL_PER_ADULT_DAY = 2400
 # kcal per 100 g edible x 10 x (1 - waste%) x extra_factor. Source: West, Pepping & Temalilwa (1988),
 # as reproduced in FAO (2001) Improving Nutrition through Home Gardening, Appendix 2. Proxies and
 # assumptions (rice paddy-to-milled 0.65, cooking banana, wheat, cassava) are in the CSV's note column.
+# SAS reports PADDY rice; EICV7 prices MILLED local rice and the food table is for milled rice.
+# ASSUMED paddy-to-milled rate (not yet sourced): used to scale rice prices DOWN and rice kcal DOWN.
+RICE_PADDY_FACTOR = 0.65
 CROPS = ["maize", "beans", "sorghum", "rice", "wheat", "cassava", "irish_potato", "sweet_potato", "cooking_banana"]
 
 

@@ -15,12 +15,15 @@ All inputs are NISR unless marked. Accessed 28 Oct 2026.
 | NISR CPI January 2025 report | Food index Jan-24, Dec-24, Jan-25 (`data/inputs/cpi.csv`) | Annexes 1-3, pp.7-9, Feb 2014=100 | CC BY 4.0 |
 | NISR CPI September 2026 report | Food index Sep-25, Aug-26, Sep-26 | Annexes 1-3, pp.10-12, Feb 2014=100 | CC BY 4.0 |
 | NISR CPI_time_series_September_2026.xls | Full monthly series (optional upgrade of cpi.csv) | 13.8 MB on the CPI September 2026 page | CC BY 4.0 |
-| NISR EICV7 2023/24 microdata (catalog 119) | Unit values (prices) | Fieldwork Oct 2023 - Oct 2024 | NISR terms |
+| NISR EICV7 2023/24 microdata (catalog 119), `Cross_Section/CS_S8B_Food_Expenditure_Consumption.dta` | Unit values (prices): value / quantity of purchases reported in kg, visits 2-5, items 19 maize, 1 beans, 45 sorghum, 16 rice (milled), 47 wheat, 7 cassava, 5 Irish potato, 6 sweet potato, 9 cooking banana | Fieldwork Oct 2023 - Oct 2024. Household purchase prices, not farm-gate. The file has no purchase dates. | NISR terms (not committed) |
 | NISR EICV7 Methodological Note (2025-04) | 2,400 kcal/adult equivalent/day (p.30); consumption valued in Jan 2024 national prices (pp.29-30) → price base month | statistics.gov.rw/sites/default/files/documents/2025-04/Methodological Note.pdf | Public |
 | kcal per kg by crop (`data/inputs/kcal_per_kg.csv`) | Calorie conversion | West, Pepping & Temalilwa (1988), *The composition of foods commonly eaten in East Africa*, as reproduced in FAO (2001) *Improving Nutrition through Home Gardening*, Appendix 2 (fao.org/4/x3996e/x3996e44.htm), per 100 g edible portion, adjusted for waste. Flags below. | Public |
 | District boundaries | Map | TODO: NISR geodata first, geoBoundaries fallback | TODO |
 
 ## Notes
+
+- **Prices:** national Jan-2024 medians (Rwf/kg): beans 800, cassava 333, cooking banana 300, Irish potato 500, maize 400, rice 1,200 (milled), sorghum 700, sweet potato 250, wheat 1,000. Rice is multiplied by 0.65 (paddy-to-milled, assumption). Coverage: 6 crops have at least 10 observations in all 30 districts; maize 28 districts, sorghum 20, wheat 3 (others use the national median). Rolled forward x1.408 (rural food CPI Jan-24 236.2 to Sep-26 332.5).
+- **Price caveat:** household purchase prices are an upper-side estimate of farmers' loss. If the average purchase month is later than Jan 2024 the rolled-forward prices are too high: using Dec-2024 (256.4) as the base would give a factor of 1.297, about 8% lower.
 
 - **Calorie factor flags:** rice: SAS reports paddy, so the milled value is multiplied by 0.65 (paddy to milled), an assumption not yet sourced. Cooking banana uses "Plantain, ripe, raw" (proxy). Wheat uses "Wheat, whole, parboiled" (proxy, no raw-grain entry). Cassava assumes the SAS reports fresh roots; confirm against the SAS report definitions.
 

@@ -117,3 +117,26 @@ def test_kcal_factors_are_sourced_and_consistent():
                       * float(row["extra_factor"]))
             assert KCAL_PER_KG[row["crop"]] == pytest.approx(expect, abs=1.0), row["crop"]
             assert row["source"].strip() and row["table_entry"].strip()
+    from isarura_core.config import RICE_PADDY_FACTOR
+    with open(INPUTS / "kcal_per_kg.csv", newline="", encoding="utf-8") as f:
+        rice = next(r for r in csv.DictReader(f) if r["crop"] == "rice")
+    assert float(rice["extra_factor"]) == RICE_PADDY_FACTOR     # one constant for prices and calories
+
+
+def test_price_table_has_national_rows_and_official_uses_them():
+    from isarura_core.conversions import national_prices, trimmed_price_table
+    rows = [{"crop": "maize", "district": d, "unit_value_rwf_per_kg": v}
+            for d, vs in {"Huye": range(100, 130), "Gasabo": range(300, 330), "Rusizi": [200] * 2}.items() for v in vs]
+    t = trimmed_price_table(pd.DataFrame(rows).assign(source="x"))
+    nat = t[t["district"] == "National"]
+    assert len(nat) == 1 and nat["source"].iloc[0] == "EICV7 unit values, national"
+    assert t.loc[(t["district"] == "Rusizi"), "price_central"].iloc[0] == nat["price_central"].iloc[0]  # thin -> national
+    assert national_prices(t)["price_central"].iloc[0] == nat["price_central"].iloc[0]
+    # without national rows it falls back to the median across districts
+    assert len(national_prices(t[t["district"] != "National"])) == 1
+
+
+def test_rice_price_is_scaled_to_paddy_in_step04():
+    import inspect
+    from pipeline import step04_prices_cpi as s4
+    assert "RICE_PADDY_FACTOR" in inspect.getsource(s4.run)
