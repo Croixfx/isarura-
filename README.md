@@ -1,13 +1,14 @@
-﻿# Isarura
+# Isarura
 
 **From harvest to table: where Rwanda's food is lost, what it is worth today, and where to act first.**
 
 NISR 2026 Big Data Hackathon, Track 1: Agricultural Productivity.
 Team: NIYONKURU Jean De La Croix, Chadia.
 
-> **Status:** the app currently shows **synthetic demo data** while the NISR microdata pipeline is
-> being connected. A banner in the app says so. Real NISR inputs already in the repo: published
-> production by crop and season (SAS 2025-2026 reports) and the CPI food index.
+> **Status:** the app runs on real data. The national headline is NISR's published production x NISR's
+> published post-harvest loss share (2025A to 2026B). District and stage detail comes from the SAS 2024-2025
+> microdata, which reproduces NISR production within 5% for 27 of 42 crop-season pairs (see the Methods page).
+> Prices are EICV7 household purchase prices rolled forward with the NISR rural food CPI.
 
 - Live app: not deployed yet (to be added before submission)
 - Backup: not deployed yet

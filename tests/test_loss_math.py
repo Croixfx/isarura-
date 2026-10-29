@@ -140,3 +140,26 @@ def test_rice_price_is_scaled_to_paddy_in_step04():
     import inspect
     from pipeline import step04_prices_cpi as s4
     assert "RICE_PADDY_FACTOR" in inspect.getsource(s4.run)
+
+
+def test_step01_farm_crop_losses_counted_once_and_implausible_ones_blanked(capsys):
+    from pipeline.step01_load_sas import (LOSS_COLS, complete_total_loss, implausible_losses_to_missing,
+                                          share_farm_crop_losses)
+    base = {c: float("nan") for c in LOSS_COLS}
+    rows = [  # farm F1 has two maize plots (harvest 100 + 300), loss 40 reported once on both rows
+        {**base, "farm_id": "s1|1", "raw_crop": "Maize", "season": "2025A", "harvest_kg": 100.0, "loss_storage_kg": 40.0},
+        {**base, "farm_id": "s1|1", "raw_crop": "Maize", "season": "2025A", "harvest_kg": 300.0, "loss_storage_kg": 40.0},
+        # farm F2 reports losing 500 kg of 50 kg harvested: impossible
+        {**base, "farm_id": "s1|2", "raw_crop": "Maize", "season": "2025A", "harvest_kg": 50.0, "loss_storage_kg": 500.0},
+    ]
+    df = complete_total_loss(pd.DataFrame(rows))
+    assert df["loss_total_kg"].tolist()[:2] == [40.0, 40.0]             # no total question -> sum of stages
+    shared = share_farm_crop_losses(df)
+    f1 = shared[shared["farm_id"] == "s1|1"]
+    assert f1["loss_storage_kg"].sum() == pytest.approx(40.0)           # counted once, not twice
+    assert f1["loss_storage_kg"].tolist() == pytest.approx([10.0, 30.0])  # in proportion to plot harvest
+    out = implausible_losses_to_missing(shared)
+    assert out.loc[out["farm_id"] == "s1|2", LOSS_COLS].isna().all().all()
+    assert out.loc[out["farm_id"] == "s1|2", "harvest_kg"].iloc[0] == 50.0   # row and harvest kept
+    assert out.loc[out["farm_id"] == "s1|1", "loss_storage_kg"].notna().all()
+    assert "1 rows with loss > harvest" in capsys.readouterr().out.replace("     1", "1")
