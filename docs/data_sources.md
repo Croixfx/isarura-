@@ -22,13 +22,13 @@ All inputs are NISR unless marked. Accessed 28 Oct 2026.
 
 ## Notes
 
-- **Prices:** national Jan-2024 medians (Rwf/kg): beans 800, cassava 333, cooking banana 300, Irish potato 500, maize 400, rice 1,200 (milled), sorghum 700, sweet potato 250, wheat 1,000. Rice is multiplied by 0.65 (paddy-to-milled, assumption). Coverage: 6 crops have at least 10 observations in all 30 districts; maize 28 districts, sorghum 20, wheat 3 (others use the national median). Rolled forward x1.408 (rural food CPI Jan-24 236.2 to Sep-26 332.5).
-- **Price caveat:** household purchase prices are an upper-side estimate of farmers' loss. If the average purchase month is later than Jan 2024 the rolled-forward prices are too high: using Dec-2024 (256.4) as the base would give a factor of 1.297, about 8% lower.
+- **Prices:** national EICV7 purchase-price medians (Rwf/kg, nominal, at purchase time): beans 800, cassava 333, cooking banana 300, Irish potato 500, maize 400, rice 1,200 (milled), sorghum 700, sweet potato 250, wheat 1,000. Rice is multiplied by 0.65 (paddy-to-milled, assumption). Coverage: 6 crops have at least 10 observations in all 30 districts; maize 28 districts, sorghum 20, wheat 3 (others use the national median). Rolled forward x1.350: Sep-26 rural food index 332.5 divided by the average of Jan-24 (236.2) and Dec-24 (256.4) = 246.3, a mid-2024 proxy because the file has no purchase dates (assumption).
+- **Price caveat:** household purchase prices are an upper-side estimate of farmers' loss. The base month is uncertain: using Jan-2024 alone would give a factor of 1.408 (about 4% higher prices), Dec-2024 alone 1.297 (about 4% lower).
 
 - **Calorie factor flags:** rice: SAS reports paddy, so the milled value is multiplied by 0.65 (paddy to milled), an assumption not yet sourced. Cooking banana uses "Plantain, ripe, raw" (proxy). Wheat uses "Wheat, whole, parboiled" (proxy, no raw-grain entry). Cassava assumes the SAS reports fresh roots; confirm against the SAS report definitions.
 
 - **Food inflation:** in September 2026, food prices rose 20.9% in the year in **urban** areas, 27.0% in **rural** areas and 25.2% for all Rwanda (CPI Sept 2026, Annexes 1-3). We use the rural index because the losses are on farms.
-- **Price roll-forward:** rural food index Jan-24 236.2 → Sep-26 332.5, factor 1.408.
+- **Price roll-forward:** rural food index, average of Jan-24 (236.2) and Dec-24 (256.4) = 246.3 → Sep-26 332.5, factor 1.350.
 - **2026 seasons:** NISR has published 2026A and 2026B production, but microdata ends at 2025. The `loss_latest` table applies the 2025 loss rate of the same season to 2026 production, and is labelled as an extrapolation.
 - Crop mapping: rice = paddy rice; beans = all beans (bush + climbing, loss share weighted by production); cooking_banana = cooking banana only. Season C covers only sweet potato, Irish potato and beans.
 - 2025A and 2025B figures come from the comparison columns of the 2026 reports. If they differ from the SAS 2025 annual report, use the annual report figures for validation and note the revision.

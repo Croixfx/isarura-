@@ -1,269 +1,269 @@
 crop,district,month,price_low,price_central,price_high,source,n_obs
-beans,Bugesera,2026-09,879.816,1126.16,1407.71,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",311
-beans,Burera,2026-09,985.394,1126.16,1407.71,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",406
-beans,Gakenke,2026-09,985.394,1126.16,1407.71,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",338
-beans,Gasabo,2026-09,985.394,1126.16,1407.71,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",363
-beans,Gatsibo,2026-09,821.161,1082.02,1251.29,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",360
-beans,Gicumbi,2026-09,844.623,985.394,1266.93,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",351
-beans,Gisagara,2026-09,844.834,1056.04,1144.08,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",342
-beans,Huye,2026-09,938.47,1082.85,1275.06,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",348
-beans,Kamonyi,2026-09,900.931,1126.16,1351.4,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",309
-beans,Karongi,2026-09,985.394,1126.16,1407.71,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",411
-beans,Kayonza,2026-09,844.623,1104.51,1407.71,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",298
-beans,Kicukiro,2026-09,985.394,1126.16,1407.71,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",273
-beans,Kirehe,2026-09,757.995,985.394,1266.93,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",318
-beans,Muhanga,2026-09,985.394,1126.16,1407.71,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",351
-beans,Musanze,2026-09,985.394,1126.16,1407.71,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",401
-beans,Ngoma,2026-09,821.161,1126.16,1351.4,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",230
-beans,Ngororero,2026-09,985.394,1126.16,1407.71,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",318
-beans,Nyabihu,2026-09,985.394,1126.16,1407.71,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",436
-beans,Nyagatare,2026-09,703.853,985.394,1407.71,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",348
-beans,Nyamagabe,2026-09,915.008,1055.78,1295.86,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",444
-beans,Nyamasheke,2026-09,938.47,1126.16,1407.71,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",277
-beans,Nyanza,2026-09,844.623,1081.05,1386.59,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",324
-beans,Nyarugenge,2026-09,985.394,1126.16,1407.71,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",289
-beans,Nyaruguru,2026-09,938.47,1126.16,1407.71,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",446
-beans,Rubavu,2026-09,1093.4,1241.18,1407.71,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",420
-beans,Ruhango,2026-09,915.008,1126.16,1407.71,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",311
-beans,Rulindo,2026-09,938.47,1126.16,1407.71,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",379
-beans,Rusizi,2026-09,844.623,1126.16,1407.71,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",281
-beans,Rutsiro,2026-09,985.394,1126.16,1407.71,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",649
-beans,Rwamagana,2026-09,900.931,1126.16,1407.71,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",265
-cassava,Bugesera,2026-09,351.926,469.235,548.118,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",110
-cassava,Burera,2026-09,469.235,563.082,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",25
-cassava,Gakenke,2026-09,351.926,469.235,633.467,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",51
-cassava,Gasabo,2026-09,563.082,703.853,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",101
-cassava,Gatsibo,2026-09,281.541,351.926,469.235,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",112
-cassava,Gicumbi,2026-09,318.846,422.312,545.486,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",70
-cassava,Gisagara,2026-09,281.541,351.926,469.235,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",150
-cassava,Huye,2026-09,351.926,491.174,563.082,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",113
-cassava,Kamonyi,2026-09,351.926,469.235,563.082,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",144
-cassava,Karongi,2026-09,422.312,492.697,633.467,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",129
-cassava,Kayonza,2026-09,351.926,351.926,469.235,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",102
-cassava,Kicukiro,2026-09,563.082,703.853,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",85
-cassava,Kirehe,2026-09,292.999,351.926,351.926,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",114
-cassava,Muhanga,2026-09,351.926,469.235,563.082,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",74
-cassava,Musanze,2026-09,563.082,645.198,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",48
-cassava,Ngoma,2026-09,351.926,469.235,586.544,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",123
-cassava,Ngororero,2026-09,434.042,563.082,650.802,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",63
-cassava,Nyabihu,2026-09,469.235,563.082,563.082,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",52
-cassava,Nyagatare,2026-09,376.593,449.746,563.082,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",145
-cassava,Nyamagabe,2026-09,394.66,469.235,563.082,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",103
-cassava,Nyamasheke,2026-09,351.926,469.235,480.966,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",87
-cassava,Nyanza,2026-09,351.926,418.171,469.235,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",170
-cassava,Nyarugenge,2026-09,563.082,703.853,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",81
-cassava,Nyaruguru,2026-09,307.196,351.926,422.312,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",75
-cassava,Rubavu,2026-09,422.312,527.89,697.851,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",28
-cassava,Ruhango,2026-09,325.406,365.033,454.098,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",154
-cassava,Rulindo,2026-09,351.926,469.235,563.082,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",64
-cassava,Rusizi,2026-09,469.235,563.082,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",41
-cassava,Rutsiro,2026-09,357.792,469.235,563.082,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",94
-cassava,Rwamagana,2026-09,351.926,469.235,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",97
-cooking_banana,Bugesera,2026-09,351.926,469.235,633.467,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",253
-cooking_banana,Burera,2026-09,351.926,422.312,563.082,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",209
-cooking_banana,Gakenke,2026-09,358.965,492.697,605.313,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",271
-cooking_banana,Gasabo,2026-09,351.926,492.697,635.579,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",694
-cooking_banana,Gatsibo,2026-09,281.541,402.202,469.235,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",249
-cooking_banana,Gicumbi,2026-09,351.926,422.312,422.312,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",343
-cooking_banana,Gisagara,2026-09,422.312,430.786,517.723,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",66
-cooking_banana,Huye,2026-09,422.312,563.082,633.467,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",116
-cooking_banana,Kamonyi,2026-09,351.926,422.312,563.082,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",262
-cooking_banana,Karongi,2026-09,422.312,492.697,563.082,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",124
-cooking_banana,Kayonza,2026-09,289.255,422.312,492.697,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",257
-cooking_banana,Kicukiro,2026-09,351.926,492.697,633.467,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",600
-cooking_banana,Kirehe,2026-09,281.541,337.849,402.202,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",241
-cooking_banana,Muhanga,2026-09,351.926,518.84,633.467,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",224
-cooking_banana,Musanze,2026-09,422.312,492.697,633.467,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",290
-cooking_banana,Ngoma,2026-09,287.407,422.312,492.697,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",291
-cooking_banana,Ngororero,2026-09,422.312,563.082,563.082,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",95
-cooking_banana,Nyabihu,2026-09,351.926,563.082,619.39,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",140
-cooking_banana,Nyagatare,2026-09,281.541,351.926,469.235,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",441
-cooking_banana,Nyamagabe,2026-09,422.312,492.697,563.082,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",53
-cooking_banana,Nyamasheke,2026-09,369.868,460.856,563.082,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",114
-cooking_banana,Nyanza,2026-09,390.638,434.543,563.082,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",136
-cooking_banana,Nyarugenge,2026-09,351.926,492.697,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",595
-cooking_banana,Nyaruguru,2026-09,402.202,492.697,563.082,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",33
-cooking_banana,Rubavu,2026-09,422.312,563.082,563.082,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",235
-cooking_banana,Ruhango,2026-09,351.926,351.926,469.235,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",178
-cooking_banana,Rulindo,2026-09,351.926,492.697,612.352,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",375
-cooking_banana,Rusizi,2026-09,469.235,563.082,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",160
-cooking_banana,Rutsiro,2026-09,422.312,469.235,563.082,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",148
-cooking_banana,Rwamagana,2026-09,351.926,526.716,633.467,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",396
-irish_potato,Bugesera,2026-09,633.467,774.238,844.623,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",324
-irish_potato,Burera,2026-09,563.082,591.236,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",508
-irish_potato,Gakenke,2026-09,563.082,703.853,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",348
-irish_potato,Gasabo,2026-09,633.467,703.853,844.623,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",835
-irish_potato,Gatsibo,2026-09,492.697,563.082,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",224
-irish_potato,Gicumbi,2026-09,492.697,633.467,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",432
-irish_potato,Gisagara,2026-09,563.082,656.929,844.623,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",123
-irish_potato,Huye,2026-09,563.082,746.084,844.623,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",209
-irish_potato,Kamonyi,2026-09,591.236,703.853,844.623,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",260
-irish_potato,Karongi,2026-09,563.082,703.853,774.238,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",311
-irish_potato,Kayonza,2026-09,422.312,563.082,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",186
-irish_potato,Kicukiro,2026-09,703.853,844.623,844.623,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",834
-irish_potato,Kirehe,2026-09,469.235,563.082,809.431,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",115
-irish_potato,Muhanga,2026-09,563.082,703.853,844.623,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",277
-irish_potato,Musanze,2026-09,563.082,661.622,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",791
-irish_potato,Ngoma,2026-09,527.89,668.66,774.238,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",134
-irish_potato,Ngororero,2026-09,563.082,703.853,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",415
-irish_potato,Nyabihu,2026-09,563.082,633.467,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",617
-irish_potato,Nyagatare,2026-09,492.697,619.39,774.238,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",231
-irish_potato,Nyamagabe,2026-09,563.082,703.853,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",355
-irish_potato,Nyamasheke,2026-09,633.467,703.853,844.623,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",143
-irish_potato,Nyanza,2026-09,633.467,703.853,844.623,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",228
-irish_potato,Nyarugenge,2026-09,633.467,774.238,844.623,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",980
-irish_potato,Nyaruguru,2026-09,492.697,625.647,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",208
-irish_potato,Rubavu,2026-09,563.082,703.853,774.238,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",915
-irish_potato,Ruhango,2026-09,591.236,703.853,844.623,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",196
-irish_potato,Rulindo,2026-09,563.082,703.853,774.238,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",444
-irish_potato,Rusizi,2026-09,703.853,844.623,915.008,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",138
-irish_potato,Rutsiro,2026-09,563.082,703.853,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",640
-irish_potato,Rwamagana,2026-09,563.082,703.853,844.623,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",352
-maize,Bugesera,2026-09,422.312,563.082,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",49
-maize,Burera,2026-09,422.312,492.697,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",73
-maize,Gakenke,2026-09,351.926,492.697,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",31
-maize,Gasabo,2026-09,492.697,563.082,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",11
-maize,Gatsibo,2026-09,351.926,432.869,675.969,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",72
-maize,Gicumbi,2026-09,422.312,563.082,739.045,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",55
-maize,Gisagara,2026-09,351.926,422.312,492.697,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",32
-maize,Huye,2026-09,422.312,450.466,545.486,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",14
-maize,Kamonyi,2026-09,422.312,563.082,703.853,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",9
-maize,Karongi,2026-09,563.082,757.995,844.623,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",51
-maize,Kayonza,2026-09,351.926,464.135,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",48
-maize,Kicukiro,2026-09,422.312,633.467,879.816,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",12
-maize,Kirehe,2026-09,316.734,422.312,563.082,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",51
-maize,Muhanga,2026-09,422.312,563.082,703.853,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",4
-maize,Musanze,2026-09,492.697,563.082,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",86
-maize,Ngoma,2026-09,354.44,422.312,548,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",22
-maize,Ngororero,2026-09,492.697,563.082,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",73
-maize,Nyabihu,2026-09,492.697,563.082,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",143
-maize,Nyagatare,2026-09,309.695,422.312,633.467,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",62
-maize,Nyamagabe,2026-09,492.697,563.082,689.776,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",23
-maize,Nyamasheke,2026-09,563.082,563.082,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",13
-maize,Nyanza,2026-09,375.388,525.263,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",19
-maize,Nyarugenge,2026-09,422.312,563.082,703.853,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",5
-maize,Nyaruguru,2026-09,541.967,633.467,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",39
-maize,Rubavu,2026-09,563.082,703.853,844.623,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",64
-maize,Ruhango,2026-09,542.227,628.44,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",19
-maize,Rulindo,2026-09,422.312,563.082,756.642,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",22
-maize,Rusizi,2026-09,492.697,598.275,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",18
-maize,Rutsiro,2026-09,563.082,605.313,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",145
-maize,Rwamagana,2026-09,422.312,563.082,950.201,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",30
-rice,Bugesera,2026-09,1098.01,1098.01,1189.51,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",362
-rice,Burera,2026-09,1006.51,1189.51,1281.01,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",141
-rice,Gakenke,2026-09,1098.01,1189.51,1281.01,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",214
-rice,Gasabo,2026-09,1006.51,1098.01,1281.01,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",317
-rice,Gatsibo,2026-09,1003.19,1098.01,1189.51,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",188
-rice,Gicumbi,2026-09,915.008,1098.01,1189.51,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",187
-rice,Gisagara,2026-09,915.008,1098.01,1098.01,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",425
-rice,Huye,2026-09,1006.51,1098.01,1098.01,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",395
-rice,Kamonyi,2026-09,1006.51,1098.01,1281.01,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",336
-rice,Karongi,2026-09,1098.01,1098.01,1281.01,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",248
-rice,Kayonza,2026-09,1098.01,1151.39,1281.01,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",218
-rice,Kicukiro,2026-09,1098.01,1098.01,1281.01,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",222
-rice,Kirehe,2026-09,1098.01,1098.01,1189.51,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",148
-rice,Muhanga,2026-09,1098.01,1098.01,1189.51,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",312
-rice,Musanze,2026-09,1006.51,1098.01,1281.01,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",204
-rice,Ngoma,2026-09,1006.51,1098.01,1189.51,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",290
-rice,Ngororero,2026-09,1098.01,1098.01,1189.51,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",212
-rice,Nyabihu,2026-09,1006.51,1098.01,1189.51,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",155
-rice,Nyagatare,2026-09,1006.51,1098.01,1189.51,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",228
-rice,Nyamagabe,2026-09,1075.13,1098.01,1189.51,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",364
-rice,Nyamasheke,2026-09,1098.01,1152.91,1281.01,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",381
-rice,Nyanza,2026-09,1098.01,1098.01,1189.51,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",356
-rice,Nyarugenge,2026-09,1098.01,1189.51,1281.01,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",245
-rice,Nyaruguru,2026-09,1006.51,1098.01,1189.51,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",281
-rice,Rubavu,2026-09,915.008,1098.01,1220.01,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",341
-rice,Ruhango,2026-09,1006.51,1098.01,1189.51,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",347
-rice,Rulindo,2026-09,915.008,1098.01,1189.51,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",322
-rice,Rusizi,2026-09,1098.01,1098.01,1220.01,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",389
-rice,Rutsiro,2026-09,1098.01,1098.01,1189.51,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",248
-rice,Rwamagana,2026-09,915.008,1098.01,1189.51,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",268
-sorghum,Bugesera,2026-09,900.931,985.394,1126.16,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",8
-sorghum,Burera,2026-09,844.623,985.394,1126.16,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",35
-sorghum,Gakenke,2026-09,922.047,985.394,1126.16,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",31
-sorghum,Gasabo,2026-09,943.163,1055.78,1126.16,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",11
-sorghum,Gatsibo,2026-09,762.507,1055.78,1126.16,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",11
-sorghum,Gicumbi,2026-09,866.103,985.394,1126.16,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",21
-sorghum,Gisagara,2026-09,844.623,900.931,1055.78,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",11
-sorghum,Huye,2026-09,900.931,985.394,1126.16,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",5
-sorghum,Kamonyi,2026-09,961.03,1126.16,1178.95,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",18
-sorghum,Karongi,2026-09,985.394,985.394,1126.16,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",11
-sorghum,Kayonza,2026-09,797.7,915.008,1126.16,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",15
-sorghum,Kicukiro,2026-09,900.931,985.394,1126.16,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",5
-sorghum,Kirehe,2026-09,844.623,985.394,1110.52,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",27
-sorghum,Muhanga,2026-09,900.931,985.394,1126.16,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",2
-sorghum,Musanze,2026-09,985.394,985.394,1126.16,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",49
-sorghum,Ngoma,2026-09,900.931,985.394,1126.16,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",3
-sorghum,Ngororero,2026-09,957.24,985.394,1126.16,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",31
-sorghum,Nyabihu,2026-09,985.394,985.394,1126.16,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",43
-sorghum,Nyagatare,2026-09,900.931,985.394,1126.16,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",9
-sorghum,Nyamagabe,2026-09,999.471,1266.93,1407.71,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",15
-sorghum,Nyamasheke,2026-09,900.931,985.394,1126.16,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",7
-sorghum,Nyanza,2026-09,900.931,985.394,1126.16,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",4
-sorghum,Nyarugenge,2026-09,900.931,985.394,1126.16,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",3
-sorghum,Nyaruguru,2026-09,844.623,985.394,985.394,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",13
-sorghum,Rubavu,2026-09,985.394,1126.16,1126.16,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",13
-sorghum,Ruhango,2026-09,900.931,985.394,1126.16,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",6
-sorghum,Rulindo,2026-09,844.623,985.394,1073.38,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",16
-sorghum,Rusizi,2026-09,900.931,985.394,1126.16,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",2
-sorghum,Rutsiro,2026-09,879.816,985.394,1090.97,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",23
-sorghum,Rwamagana,2026-09,891.547,1055.78,1196.55,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",11
-sweet_potato,Bugesera,2026-09,344.106,409.632,469.235,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",209
-sweet_potato,Burera,2026-09,234.618,281.541,422.312,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",316
-sweet_potato,Gakenke,2026-09,281.541,351.926,469.235,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",161
-sweet_potato,Gasabo,2026-09,422.312,492.697,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",306
-sweet_potato,Gatsibo,2026-09,281.541,351.926,469.235,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",305
-sweet_potato,Gicumbi,2026-09,234.618,340.849,422.312,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",370
-sweet_potato,Gisagara,2026-09,211.156,260.285,402.202,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",500
-sweet_potato,Huye,2026-09,201.101,281.541,402.202,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",398
-sweet_potato,Kamonyi,2026-09,281.541,412.257,563.082,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",294
-sweet_potato,Karongi,2026-09,281.541,383.224,469.235,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",324
-sweet_potato,Kayonza,2026-09,281.541,351.926,412.257,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",199
-sweet_potato,Kicukiro,2026-09,422.312,563.082,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",258
-sweet_potato,Kirehe,2026-09,234.618,281.541,351.926,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",239
-sweet_potato,Muhanga,2026-09,236.293,281.541,351.926,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",266
-sweet_potato,Musanze,2026-09,351.926,422.312,492.697,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",422
-sweet_potato,Ngoma,2026-09,281.541,422.312,563.082,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",251
-sweet_potato,Ngororero,2026-09,281.541,351.926,428.812,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",240
-sweet_potato,Nyabihu,2026-09,281.541,351.926,469.235,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",519
-sweet_potato,Nyagatare,2026-09,291.149,419.396,492.697,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",320
-sweet_potato,Nyamagabe,2026-09,281.541,281.541,422.312,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",429
-sweet_potato,Nyamasheke,2026-09,281.541,351.926,422.312,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",212
-sweet_potato,Nyanza,2026-09,255.946,351.926,469.235,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",335
-sweet_potato,Nyarugenge,2026-09,422.312,563.082,703.853,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",284
-sweet_potato,Nyaruguru,2026-09,187.694,281.541,307.136,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",317
-sweet_potato,Rubavu,2026-09,281.541,330.42,422.312,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",476
-sweet_potato,Ruhango,2026-09,211.156,300.792,378.009,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",335
-sweet_potato,Rulindo,2026-09,281.541,351.926,492.697,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",248
-sweet_potato,Rusizi,2026-09,351.926,469.235,492.697,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",181
-sweet_potato,Rutsiro,2026-09,258.456,281.541,422.312,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",515
-sweet_potato,Rwamagana,2026-09,281.541,351.926,527.89,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",249
-wheat,Bugesera,2026-09,1126.16,1407.71,1442.9,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",1
-wheat,Burera,2026-09,985.394,1126.16,1126.16,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",16
-wheat,Gakenke,2026-09,1126.16,1407.71,1442.9,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",5
-wheat,Gasabo,2026-09,1126.16,1407.71,1442.9,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",7
-wheat,Gatsibo,2026-09,1126.16,1407.71,1442.9,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",1
-wheat,Gicumbi,2026-09,1126.16,1407.71,1442.9,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",1
-wheat,Gisagara,2026-09,1126.16,1407.71,1442.9,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",1
-wheat,Karongi,2026-09,1126.16,1407.71,1442.9,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",1
-wheat,Kayonza,2026-09,1126.16,1407.71,1442.9,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",2
-wheat,Kicukiro,2026-09,1126.16,1407.71,1442.9,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",3
-wheat,Kirehe,2026-09,1126.16,1407.71,1442.9,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",2
-wheat,Musanze,2026-09,1196.55,1407.71,1689.25,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",10
-wheat,Ngororero,2026-09,1126.16,1407.71,1442.9,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",8
-wheat,Nyabihu,2026-09,1266.93,1407.71,1548.48,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.408)",11
-wheat,Nyamagabe,2026-09,1126.16,1407.71,1442.9,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",5
-wheat,Nyaruguru,2026-09,1126.16,1407.71,1442.9,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",1
-wheat,Rubavu,2026-09,1126.16,1407.71,1442.9,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",7
-wheat,Rulindo,2026-09,1126.16,1407.71,1442.9,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",1
-wheat,Rwamagana,2026-09,1126.16,1407.71,1442.9,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.408)",1
-beans,National,2026-09,938.47,1126.16,1407.71,"EICV7 unit values, national, rolled to 2026-09 with CPI food index (x1.408)",10597
-cassava,National,2026-09,351.926,469.235,563.082,"EICV7 unit values, national, rolled to 2026-09 with CPI food index (x1.408)",2805
-cooking_banana,National,2026-09,351.926,422.417,563.082,"EICV7 unit values, national, rolled to 2026-09 with CPI food index (x1.408)",7589
-irish_potato,National,2026-09,563.082,703.853,774.238,"EICV7 unit values, national, rolled to 2026-09 with CPI food index (x1.408)",11773
-maize,National,2026-09,422.312,563.082,703.853,"EICV7 unit values, national, rolled to 2026-09 with CPI food index (x1.408)",1295
-rice,National,2026-09,1024.81,1098.01,1189.51,"EICV7 unit values, national, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.408)",8344
-sorghum,National,2026-09,900.931,985.394,1126.16,"EICV7 unit values, national, rolled to 2026-09 with CPI food index (x1.408)",459
-sweet_potato,National,2026-09,281.541,351.926,469.235,"EICV7 unit values, national, rolled to 2026-09 with CPI food index (x1.408)",9478
-wheat,National,2026-09,1126.16,1407.71,1442.9,"EICV7 unit values, national, rolled to 2026-09 with CPI food index (x1.408)",84
+beans,Bugesera,2026-09,843.737,1079.98,1349.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",311
+beans,Burera,2026-09,944.986,1079.98,1349.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",406
+beans,Gakenke,2026-09,944.986,1079.98,1349.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",338
+beans,Gasabo,2026-09,944.986,1079.98,1349.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",363
+beans,Gatsibo,2026-09,787.488,1037.65,1199.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",360
+beans,Gicumbi,2026-09,809.988,944.986,1214.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",351
+beans,Gisagara,2026-09,810.19,1012.74,1097.16,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",342
+beans,Huye,2026-09,899.986,1038.45,1222.77,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",348
+beans,Kamonyi,2026-09,863.987,1079.98,1295.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",309
+beans,Karongi,2026-09,944.986,1079.98,1349.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",411
+beans,Kayonza,2026-09,809.988,1059.21,1349.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",298
+beans,Kicukiro,2026-09,944.986,1079.98,1349.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",273
+beans,Kirehe,2026-09,726.912,944.986,1214.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",318
+beans,Muhanga,2026-09,944.986,1079.98,1349.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",351
+beans,Musanze,2026-09,944.986,1079.98,1349.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",401
+beans,Ngoma,2026-09,787.488,1079.98,1295.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",230
+beans,Ngororero,2026-09,944.986,1079.98,1349.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",318
+beans,Nyabihu,2026-09,944.986,1079.98,1349.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",436
+beans,Nyagatare,2026-09,674.99,944.986,1349.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",348
+beans,Nyamagabe,2026-09,877.487,1012.48,1242.72,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",444
+beans,Nyamasheke,2026-09,899.986,1079.98,1349.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",277
+beans,Nyanza,2026-09,809.988,1036.72,1329.73,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",324
+beans,Nyarugenge,2026-09,944.986,1079.98,1349.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",289
+beans,Nyaruguru,2026-09,899.986,1079.98,1349.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",446
+beans,Rubavu,2026-09,1048.56,1190.28,1349.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",420
+beans,Ruhango,2026-09,877.487,1079.98,1349.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",311
+beans,Rulindo,2026-09,899.986,1079.98,1349.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",379
+beans,Rusizi,2026-09,809.988,1079.98,1349.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",281
+beans,Rutsiro,2026-09,944.986,1079.98,1349.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",649
+beans,Rwamagana,2026-09,863.987,1079.98,1349.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",265
+cassava,Bugesera,2026-09,337.495,449.993,525.641,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",110
+cassava,Burera,2026-09,449.993,539.992,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",25
+cassava,Gakenke,2026-09,337.495,449.993,607.491,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",51
+cassava,Gasabo,2026-09,539.992,674.99,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",101
+cassava,Gatsibo,2026-09,269.996,337.495,449.993,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",112
+cassava,Gicumbi,2026-09,305.771,404.994,523.117,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",70
+cassava,Gisagara,2026-09,269.996,337.495,449.993,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",150
+cassava,Huye,2026-09,337.495,471.033,539.992,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",113
+cassava,Kamonyi,2026-09,337.495,449.993,539.992,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",144
+cassava,Karongi,2026-09,404.994,472.493,607.491,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",129
+cassava,Kayonza,2026-09,337.495,337.495,449.993,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",102
+cassava,Kicukiro,2026-09,539.992,674.99,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",85
+cassava,Kirehe,2026-09,280.984,337.495,337.495,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",114
+cassava,Muhanga,2026-09,337.495,449.993,539.992,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",74
+cassava,Musanze,2026-09,539.992,618.741,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",48
+cassava,Ngoma,2026-09,337.495,449.993,562.492,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",123
+cassava,Ngororero,2026-09,416.244,539.992,624.115,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",63
+cassava,Nyabihu,2026-09,449.993,539.992,539.992,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",52
+cassava,Nyagatare,2026-09,361.15,431.303,539.992,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",145
+cassava,Nyamagabe,2026-09,378.476,449.993,539.992,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",103
+cassava,Nyamasheke,2026-09,337.495,449.993,461.243,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",87
+cassava,Nyanza,2026-09,337.495,401.023,449.993,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",170
+cassava,Nyarugenge,2026-09,539.992,674.99,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",81
+cassava,Nyaruguru,2026-09,294.599,337.495,404.994,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",75
+cassava,Rubavu,2026-09,404.994,506.242,669.234,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",28
+cassava,Ruhango,2026-09,312.062,350.064,435.477,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",154
+cassava,Rulindo,2026-09,337.495,449.993,539.992,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",64
+cassava,Rusizi,2026-09,449.993,539.992,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",41
+cassava,Rutsiro,2026-09,343.12,449.993,539.992,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",94
+cassava,Rwamagana,2026-09,337.495,449.993,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",97
+cooking_banana,Bugesera,2026-09,337.495,449.993,607.491,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",253
+cooking_banana,Burera,2026-09,337.495,404.994,539.992,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",209
+cooking_banana,Gakenke,2026-09,344.245,472.493,580.491,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",271
+cooking_banana,Gasabo,2026-09,337.495,472.493,609.516,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",694
+cooking_banana,Gatsibo,2026-09,269.996,385.708,449.993,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",249
+cooking_banana,Gicumbi,2026-09,337.495,404.994,404.994,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",343
+cooking_banana,Gisagara,2026-09,404.994,413.121,496.493,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",66
+cooking_banana,Huye,2026-09,404.994,539.992,607.491,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",116
+cooking_banana,Kamonyi,2026-09,337.495,404.994,539.992,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",262
+cooking_banana,Karongi,2026-09,404.994,472.493,539.992,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",124
+cooking_banana,Kayonza,2026-09,277.393,404.994,472.493,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",257
+cooking_banana,Kicukiro,2026-09,337.495,472.493,607.491,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",600
+cooking_banana,Kirehe,2026-09,269.996,323.995,385.708,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",241
+cooking_banana,Muhanga,2026-09,337.495,497.564,607.491,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",224
+cooking_banana,Musanze,2026-09,404.994,472.493,607.491,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",290
+cooking_banana,Ngoma,2026-09,275.621,404.994,472.493,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",291
+cooking_banana,Ngororero,2026-09,404.994,539.992,539.992,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",95
+cooking_banana,Nyabihu,2026-09,337.495,539.992,593.991,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",140
+cooking_banana,Nyagatare,2026-09,269.996,337.495,449.993,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",441
+cooking_banana,Nyamagabe,2026-09,404.994,472.493,539.992,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",53
+cooking_banana,Nyamasheke,2026-09,354.701,441.958,539.992,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",114
+cooking_banana,Nyanza,2026-09,374.619,416.724,539.992,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",136
+cooking_banana,Nyarugenge,2026-09,337.495,472.493,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",595
+cooking_banana,Nyaruguru,2026-09,385.708,472.493,539.992,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",33
+cooking_banana,Rubavu,2026-09,404.994,539.992,539.992,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",235
+cooking_banana,Ruhango,2026-09,337.495,337.495,449.993,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",178
+cooking_banana,Rulindo,2026-09,337.495,472.493,587.241,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",375
+cooking_banana,Rusizi,2026-09,449.993,539.992,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",160
+cooking_banana,Rutsiro,2026-09,404.994,449.993,539.992,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",148
+cooking_banana,Rwamagana,2026-09,337.495,505.117,607.491,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",396
+irish_potato,Bugesera,2026-09,607.491,742.489,809.988,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",324
+irish_potato,Burera,2026-09,539.992,566.991,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",508
+irish_potato,Gakenke,2026-09,539.992,674.99,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",348
+irish_potato,Gasabo,2026-09,607.491,674.99,809.988,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",835
+irish_potato,Gatsibo,2026-09,472.493,539.992,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",224
+irish_potato,Gicumbi,2026-09,472.493,607.491,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",432
+irish_potato,Gisagara,2026-09,539.992,629.991,809.988,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",123
+irish_potato,Huye,2026-09,539.992,715.489,809.988,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",209
+irish_potato,Kamonyi,2026-09,566.991,674.99,809.988,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",260
+irish_potato,Karongi,2026-09,539.992,674.99,742.489,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",311
+irish_potato,Kayonza,2026-09,404.994,539.992,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",186
+irish_potato,Kicukiro,2026-09,674.99,809.988,809.988,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",834
+irish_potato,Kirehe,2026-09,449.993,539.992,776.238,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",115
+irish_potato,Muhanga,2026-09,539.992,674.99,809.988,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",277
+irish_potato,Musanze,2026-09,539.992,634.49,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",791
+irish_potato,Ngoma,2026-09,506.242,641.24,742.489,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",134
+irish_potato,Ngororero,2026-09,539.992,674.99,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",415
+irish_potato,Nyabihu,2026-09,539.992,607.491,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",617
+irish_potato,Nyagatare,2026-09,472.493,593.991,742.489,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",231
+irish_potato,Nyamagabe,2026-09,539.992,674.99,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",355
+irish_potato,Nyamasheke,2026-09,607.491,674.99,809.988,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",143
+irish_potato,Nyanza,2026-09,607.491,674.99,809.988,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",228
+irish_potato,Nyarugenge,2026-09,607.491,742.489,809.988,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",980
+irish_potato,Nyaruguru,2026-09,472.493,599.991,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",208
+irish_potato,Rubavu,2026-09,539.992,674.99,742.489,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",915
+irish_potato,Ruhango,2026-09,566.991,674.99,809.988,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",196
+irish_potato,Rulindo,2026-09,539.992,674.99,742.489,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",444
+irish_potato,Rusizi,2026-09,674.99,809.988,877.487,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",138
+irish_potato,Rutsiro,2026-09,539.992,674.99,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",640
+irish_potato,Rwamagana,2026-09,539.992,674.99,809.988,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",352
+maize,Bugesera,2026-09,404.994,539.992,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",49
+maize,Burera,2026-09,404.994,472.493,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",73
+maize,Gakenke,2026-09,337.495,472.493,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",31
+maize,Gasabo,2026-09,472.493,539.992,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",11
+maize,Gatsibo,2026-09,337.495,415.119,648.25,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",72
+maize,Gicumbi,2026-09,404.994,539.992,708.739,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",55
+maize,Gisagara,2026-09,337.495,404.994,472.493,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",32
+maize,Huye,2026-09,404.994,431.994,523.117,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",14
+maize,Kamonyi,2026-09,404.994,539.992,674.99,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",9
+maize,Karongi,2026-09,539.992,726.912,809.988,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",51
+maize,Kayonza,2026-09,337.495,445.102,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",48
+maize,Kicukiro,2026-09,404.994,607.491,843.737,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",12
+maize,Kirehe,2026-09,303.745,404.994,539.992,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",51
+maize,Muhanga,2026-09,404.994,539.992,674.99,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",4
+maize,Musanze,2026-09,472.493,539.992,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",86
+maize,Ngoma,2026-09,339.906,404.994,525.528,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",22
+maize,Ngororero,2026-09,472.493,539.992,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",73
+maize,Nyabihu,2026-09,472.493,539.992,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",143
+maize,Nyagatare,2026-09,296.996,404.994,607.491,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",62
+maize,Nyamagabe,2026-09,472.493,539.992,661.49,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",23
+maize,Nyamasheke,2026-09,539.992,539.992,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",13
+maize,Nyanza,2026-09,359.995,503.724,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",19
+maize,Nyarugenge,2026-09,404.994,539.992,674.99,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",5
+maize,Nyaruguru,2026-09,519.742,607.491,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",39
+maize,Rubavu,2026-09,539.992,674.99,809.988,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",64
+maize,Ruhango,2026-09,519.992,602.67,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",19
+maize,Rulindo,2026-09,404.994,539.992,725.614,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",22
+maize,Rusizi,2026-09,472.493,573.741,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",18
+maize,Rutsiro,2026-09,539.992,580.491,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",145
+maize,Rwamagana,2026-09,404.994,539.992,911.236,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",30
+rice,Bugesera,2026-09,1052.98,1052.98,1140.73,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",362
+rice,Burera,2026-09,965.235,1140.73,1228.48,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",141
+rice,Gakenke,2026-09,1052.98,1140.73,1228.48,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",214
+rice,Gasabo,2026-09,965.235,1052.98,1228.48,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",317
+rice,Gatsibo,2026-09,962.051,1052.98,1140.73,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",188
+rice,Gicumbi,2026-09,877.487,1052.98,1140.73,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",187
+rice,Gisagara,2026-09,877.487,1052.98,1052.98,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",425
+rice,Huye,2026-09,965.235,1052.98,1052.98,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",395
+rice,Kamonyi,2026-09,965.235,1052.98,1228.48,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",336
+rice,Karongi,2026-09,1052.98,1052.98,1228.48,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",248
+rice,Kayonza,2026-09,1052.98,1104.17,1228.48,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",218
+rice,Kicukiro,2026-09,1052.98,1052.98,1228.48,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",222
+rice,Kirehe,2026-09,1052.98,1052.98,1140.73,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",148
+rice,Muhanga,2026-09,1052.98,1052.98,1140.73,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",312
+rice,Musanze,2026-09,965.235,1052.98,1228.48,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",204
+rice,Ngoma,2026-09,965.235,1052.98,1140.73,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",290
+rice,Ngororero,2026-09,1052.98,1052.98,1140.73,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",212
+rice,Nyabihu,2026-09,965.235,1052.98,1140.73,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",155
+rice,Nyagatare,2026-09,965.235,1052.98,1140.73,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",228
+rice,Nyamagabe,2026-09,1031.05,1052.98,1140.73,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",364
+rice,Nyamasheke,2026-09,1052.98,1105.63,1228.48,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",381
+rice,Nyanza,2026-09,1052.98,1052.98,1140.73,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",356
+rice,Nyarugenge,2026-09,1052.98,1140.73,1228.48,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",245
+rice,Nyaruguru,2026-09,965.235,1052.98,1140.73,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",281
+rice,Rubavu,2026-09,877.487,1052.98,1169.98,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",341
+rice,Ruhango,2026-09,965.235,1052.98,1140.73,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",347
+rice,Rulindo,2026-09,877.487,1052.98,1140.73,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",322
+rice,Rusizi,2026-09,1052.98,1052.98,1169.98,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",389
+rice,Rutsiro,2026-09,1052.98,1052.98,1140.73,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",248
+rice,Rwamagana,2026-09,877.487,1052.98,1140.73,"EICV7 unit values, district median, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",268
+sorghum,Bugesera,2026-09,863.987,944.986,1079.98,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",8
+sorghum,Burera,2026-09,809.988,944.986,1079.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",35
+sorghum,Gakenke,2026-09,884.237,944.986,1079.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",31
+sorghum,Gasabo,2026-09,904.486,1012.48,1079.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",11
+sorghum,Gatsibo,2026-09,731.239,1012.48,1079.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",11
+sorghum,Gicumbi,2026-09,830.586,944.986,1079.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",21
+sorghum,Gisagara,2026-09,809.988,863.987,1012.48,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",11
+sorghum,Huye,2026-09,863.987,944.986,1079.98,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",5
+sorghum,Kamonyi,2026-09,921.621,1079.98,1130.61,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",18
+sorghum,Karongi,2026-09,944.986,944.986,1079.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",11
+sorghum,Kayonza,2026-09,764.988,877.487,1079.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",15
+sorghum,Kicukiro,2026-09,863.987,944.986,1079.98,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",5
+sorghum,Kirehe,2026-09,809.988,944.986,1064.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",27
+sorghum,Muhanga,2026-09,863.987,944.986,1079.98,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",2
+sorghum,Musanze,2026-09,944.986,944.986,1079.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",49
+sorghum,Ngoma,2026-09,863.987,944.986,1079.98,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",3
+sorghum,Ngororero,2026-09,917.986,944.986,1079.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",31
+sorghum,Nyabihu,2026-09,944.986,944.986,1079.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",43
+sorghum,Nyagatare,2026-09,863.987,944.986,1079.98,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",9
+sorghum,Nyamagabe,2026-09,958.486,1214.98,1349.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",15
+sorghum,Nyamasheke,2026-09,863.987,944.986,1079.98,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",7
+sorghum,Nyanza,2026-09,863.987,944.986,1079.98,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",4
+sorghum,Nyarugenge,2026-09,863.987,944.986,1079.98,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",3
+sorghum,Nyaruguru,2026-09,809.988,944.986,944.986,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",13
+sorghum,Rubavu,2026-09,944.986,1079.98,1079.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",13
+sorghum,Ruhango,2026-09,863.987,944.986,1079.98,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",6
+sorghum,Rulindo,2026-09,809.988,944.986,1029.36,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",16
+sorghum,Rusizi,2026-09,863.987,944.986,1079.98,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",2
+sorghum,Rutsiro,2026-09,843.737,944.986,1046.23,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",23
+sorghum,Rwamagana,2026-09,854.987,1012.48,1147.48,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",11
+sweet_potato,Bugesera,2026-09,329.995,392.835,449.993,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",209
+sweet_potato,Burera,2026-09,224.997,269.996,404.994,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",316
+sweet_potato,Gakenke,2026-09,269.996,337.495,449.993,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",161
+sweet_potato,Gasabo,2026-09,404.994,472.493,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",306
+sweet_potato,Gatsibo,2026-09,269.996,337.495,449.993,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",305
+sweet_potato,Gicumbi,2026-09,224.997,326.872,404.994,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",370
+sweet_potato,Gisagara,2026-09,202.497,249.612,385.708,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",500
+sweet_potato,Huye,2026-09,192.854,269.996,385.708,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",398
+sweet_potato,Kamonyi,2026-09,269.996,395.351,539.992,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",294
+sweet_potato,Karongi,2026-09,269.996,367.509,449.993,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",324
+sweet_potato,Kayonza,2026-09,269.996,337.495,395.351,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",199
+sweet_potato,Kicukiro,2026-09,404.994,539.992,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",258
+sweet_potato,Kirehe,2026-09,224.997,269.996,337.495,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",239
+sweet_potato,Muhanga,2026-09,226.604,269.996,337.495,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",266
+sweet_potato,Musanze,2026-09,337.495,404.994,472.493,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",422
+sweet_potato,Ngoma,2026-09,269.996,404.994,539.992,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",251
+sweet_potato,Ngororero,2026-09,269.996,337.495,411.228,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",240
+sweet_potato,Nyabihu,2026-09,269.996,337.495,449.993,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",519
+sweet_potato,Nyagatare,2026-09,279.21,402.198,472.493,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",320
+sweet_potato,Nyamagabe,2026-09,269.996,269.996,404.994,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",429
+sweet_potato,Nyamasheke,2026-09,269.996,337.495,404.994,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",212
+sweet_potato,Nyanza,2026-09,245.451,337.495,449.993,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",335
+sweet_potato,Nyarugenge,2026-09,404.994,539.992,674.99,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",284
+sweet_potato,Nyaruguru,2026-09,179.997,269.996,294.541,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",317
+sweet_potato,Rubavu,2026-09,269.996,316.87,404.994,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",476
+sweet_potato,Ruhango,2026-09,202.497,288.457,362.508,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",335
+sweet_potato,Rulindo,2026-09,269.996,337.495,472.493,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",248
+sweet_potato,Rusizi,2026-09,337.495,449.993,472.493,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",181
+sweet_potato,Rutsiro,2026-09,247.858,269.996,404.994,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",515
+sweet_potato,Rwamagana,2026-09,269.996,337.495,506.242,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",249
+wheat,Bugesera,2026-09,1079.98,1349.98,1383.73,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",1
+wheat,Burera,2026-09,944.986,1079.98,1079.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",16
+wheat,Gakenke,2026-09,1079.98,1349.98,1383.73,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",5
+wheat,Gasabo,2026-09,1079.98,1349.98,1383.73,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",7
+wheat,Gatsibo,2026-09,1079.98,1349.98,1383.73,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",1
+wheat,Gicumbi,2026-09,1079.98,1349.98,1383.73,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",1
+wheat,Gisagara,2026-09,1079.98,1349.98,1383.73,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",1
+wheat,Karongi,2026-09,1079.98,1349.98,1383.73,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",1
+wheat,Kayonza,2026-09,1079.98,1349.98,1383.73,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",2
+wheat,Kicukiro,2026-09,1079.98,1349.98,1383.73,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",3
+wheat,Kirehe,2026-09,1079.98,1349.98,1383.73,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",2
+wheat,Musanze,2026-09,1147.48,1349.98,1619.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",10
+wheat,Ngororero,2026-09,1079.98,1349.98,1383.73,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",8
+wheat,Nyabihu,2026-09,1214.98,1349.98,1484.98,"EICV7 unit values, district median, rolled to 2026-09 with CPI food index (x1.350)",11
+wheat,Nyamagabe,2026-09,1079.98,1349.98,1383.73,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",5
+wheat,Nyaruguru,2026-09,1079.98,1349.98,1383.73,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",1
+wheat,Rubavu,2026-09,1079.98,1349.98,1383.73,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",7
+wheat,Rulindo,2026-09,1079.98,1349.98,1383.73,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",1
+wheat,Rwamagana,2026-09,1079.98,1349.98,1383.73,"EICV7 unit values, national median (thin district), rolled to 2026-09 with CPI food index (x1.350)",1
+beans,National,2026-09,899.986,1079.98,1349.98,"EICV7 unit values, national, rolled to 2026-09 with CPI food index (x1.350)",10597
+cassava,National,2026-09,337.495,449.993,539.992,"EICV7 unit values, national, rolled to 2026-09 with CPI food index (x1.350)",2805
+cooking_banana,National,2026-09,337.495,405.095,539.992,"EICV7 unit values, national, rolled to 2026-09 with CPI food index (x1.350)",7589
+irish_potato,National,2026-09,539.992,674.99,742.489,"EICV7 unit values, national, rolled to 2026-09 with CPI food index (x1.350)",11773
+maize,National,2026-09,404.994,539.992,674.99,"EICV7 unit values, national, rolled to 2026-09 with CPI food index (x1.350)",1295
+rice,National,2026-09,982.785,1052.98,1140.73,"EICV7 unit values, national, x0.65 paddy-to-milled (assumption), rolled to 2026-09 with CPI food index (x1.350)",8344
+sorghum,National,2026-09,863.987,944.986,1079.98,"EICV7 unit values, national, rolled to 2026-09 with CPI food index (x1.350)",459
+sweet_potato,National,2026-09,269.996,337.495,449.993,"EICV7 unit values, national, rolled to 2026-09 with CPI food index (x1.350)",9478
+wheat,National,2026-09,1079.98,1349.98,1383.73,"EICV7 unit values, national, rolled to 2026-09 with CPI food index (x1.350)",84

@@ -16,7 +16,12 @@ from isarura_core.conversions import cpi_factor, roll_forward, trimmed_price_tab
 
 from .common import Paths, log
 
-EICV7_BASE_MONTH = "2024-01"   # NISR EICV7 Methodological Note p.29-30: consumption valued in Jan 2024 national prices.
+# EICV7 purchase values are nominal, at the time of each household visit (fieldwork Oct 2023 - Oct 2024; the file
+# has no purchase dates). The base is therefore the AVERAGE of the rural food index in Jan-2024 and Dec-2024
+# (236.2 and 256.4 -> 246.3), a mid-2024 proxy for when the prices were paid. Assumption, flagged on the Methods
+# page. (The NISR Methodological Note p.29-30 values the consumption AGGREGATE in Jan 2024 prices; that is a
+# deflated aggregate, not these raw purchase values.)
+EICV7_BASE_MONTHS = ("2024-01", "2024-12")
 CPI_AREA = "Rural"             # farm losses -> rural food index
 
 EICV7_FOOD_FILE = RAW / "eicv7" / "Cross_Section" / "CS_S8B_Food_Expenditure_Consumption.dta"
@@ -35,7 +40,7 @@ VISITS = (2, 3, 4, 5)
 
 
 def load_eicv7_unit_values() -> pd.DataFrame:
-    """One row per purchase reported in kg with quantity > 0 and value > 0, visits 2-5 (Jan 2024 prices)."""
+    """One row per purchase reported in kg with quantity > 0 and value > 0, visits 2-5 (nominal, at purchase time)."""
     if not EICV7_FOOD_FILE.exists():
         raise NotImplementedError(f"EICV7 food file not found: {EICV7_FOOD_FILE}")
     import pyreadstat
@@ -73,7 +78,7 @@ def run(p: Paths):
     uv = check(uv, "unit_values")
     cpi = check(pd.read_csv(p.inputs / "cpi.csv", dtype={"month": str}), "cpi")
     latest = cpi["month"].max()
-    f = cpi_factor(cpi, EICV7_BASE_MONTH, latest, CPI_AREA)
+    f = cpi_factor(cpi, EICV7_BASE_MONTHS, latest, CPI_AREA)
     table = trimmed_price_table(uv)
     # EICV7 prices MILLED rice; SAS loss is PADDY. ASSUMED paddy-to-milled rate (see config.RICE_PADDY_FACTOR).
     rice = table["crop"] == "rice"
@@ -83,5 +88,5 @@ def run(p: Paths):
     prices = check(prices, "prices")
     prices.to_parquet(p.out("prices"), index=False)
     nat = prices[prices["district"] == "National"].set_index("crop")["price_central"]
-    log("04", f"prices for {prices['crop'].nunique()} crops, rolled {EICV7_BASE_MONTH} -> {latest} (x{f:.3f})")
+    log("04", f"prices for {prices['crop'].nunique()} crops, rolled {" & ".join(EICV7_BASE_MONTHS)} average -> {latest} (x{f:.3f})")
     log("04", "national central price (Rwf/kg, " + latest + "): " + ", ".join(f"{c} {v:,.0f}" for c, v in nat.items()))

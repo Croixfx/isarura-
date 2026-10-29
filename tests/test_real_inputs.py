@@ -201,3 +201,16 @@ def test_loss_official_empty_inputs_give_empty_valid_table():
     out = official_loss(nat, pd.DataFrame(columns=["crop", "season", "loss_share_pct", "source"]))
     assert out.empty
     check(out, "loss_official")
+
+
+def test_cpi_factor_averages_several_base_months():
+    cpi = check(pd.read_csv(INPUTS / "cpi.csv", dtype={"month": str}), "cpi")
+    f = cpi_factor(cpi, ("2024-01", "2024-12"), "2026-09", "Rural")
+    assert f == pytest.approx(332.5 / ((236.2 + 256.4) / 2))
+    assert 1.34 < f < 1.36
+    assert cpi_factor(cpi, ["2024-01"], "2026-09", "Rural") == pytest.approx(cpi_factor(cpi, "2024-01", "2026-09", "Rural"))
+
+
+def test_step04_uses_the_averaged_base():
+    from pipeline import step04_prices_cpi as s4
+    assert s4.EICV7_BASE_MONTHS == ("2024-01", "2024-12")

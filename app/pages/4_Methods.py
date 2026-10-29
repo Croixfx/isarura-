@@ -44,6 +44,9 @@ if len(vl):
 else:
     st.info("No published loss shares overlap the seasons with microdata yet.")
 
+st.caption("Losses in our own microdata run higher than NISR's published shares for beans, Irish potato and sorghum, "
+           "so the national headline uses NISR's figures and both are shown here.")
+
 st.header("2. How each number is made")
 st.markdown(f"""
 | Step | What we do |
@@ -74,7 +77,7 @@ st.header("5. Sources, data use and declarations")
 st.markdown("""
 - NISR Seasonal Agricultural Survey microdata 2024, 2025 (microdata.statistics.gov.rw, catalog 113, 124)
 - NISR SAS 2025 annual report (published production tables)
-- NISR EICV7 2023/24 (catalog 119), food purchases module (S8B): unit values = value / quantity for purchases reported in kg, visits 2 to 5. **Caveat:** these are household *purchase* prices, not farm-gate prices. Farm-gate values are typically lower, so the Rwf figures are an upper-side estimate of farmers' loss. Prices are rolled from January 2024 to the latest month with the rural food CPI; the file has no purchase dates, so the true average purchase month may be later than January 2024 (which would lower the rolled-forward prices). **Rice:** EICV7 prices milled rice but the SAS loss is paddy, so rice prices are multiplied by 0.65, an assumed paddy-to-milled rate that is not yet sourced.
+- NISR EICV7 2023/24 (catalog 119), food purchases module (S8B): unit values = value / quantity for purchases reported in kg, visits 2 to 5. **Caveat:** these are household *purchase* prices, not farm-gate prices. Farm-gate values are typically lower, so the Rwf figures are an upper-side estimate of farmers' loss. The file has no purchase dates (fieldwork ran October 2023 to October 2024), so prices are rolled to the latest month with the rural food CPI from the average of the January 2024 and December 2024 index, a mid-2024 proxy (an assumption). **Rice:** EICV7 prices milled rice but the SAS loss is paddy, so rice prices are multiplied by 0.65, an assumed paddy-to-milled rate that is not yet sourced.
 - NISR CPI time series, September 2026 (CC BY 4.0)
 - Calorie factors: West, Pepping & Temalilwa (1988), *The composition of foods commonly eaten in East Africa*, as reproduced in FAO (2001), *Improving Nutrition through Home Gardening*, Appendix 2. Per 100 g edible portion, adjusted for waste. **Assumptions:** rice is paddy, so the milled value is multiplied by 0.65 (an assumed paddy-to-milled rate, not yet sourced); cooking banana uses plantain and wheat uses parboiled wheat as proxies; cassava is assumed to be reported as fresh roots.
 - District boundaries: TODO (NISR geodata or geoBoundaries, with licence)

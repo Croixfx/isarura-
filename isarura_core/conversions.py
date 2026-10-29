@@ -45,9 +45,11 @@ def trimmed_price_table(unit_values: pd.DataFrame, trim: float = 0.05, min_obs: 
     return pd.concat([dist, nat], ignore_index=True)
 
 
-def cpi_factor(cpi: pd.DataFrame, base_month: str, latest_month: str, area: str = "Rural") -> float:
+def cpi_factor(cpi: pd.DataFrame, base_month, latest_month: str, area: str = "Rural") -> float:
+    """latest index / base index. `base_month` may be several months: their index values are averaged."""
     s = cpi[cpi["area"] == area].set_index("month")["food_index"]
-    return float(s[latest_month] / s[base_month])
+    months = [base_month] if isinstance(base_month, str) else list(base_month)
+    return float(s[latest_month] / s[months].mean())
 
 
 def roll_forward(prices: pd.DataFrame, factor: float, month: str) -> pd.DataFrame:
