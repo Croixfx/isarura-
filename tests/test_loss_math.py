@@ -103,3 +103,17 @@ def test_negative_losses_become_missing_and_are_logged(capsys):
     log = capsys.readouterr().out
     assert "2024A" in log and "loss_storage_kg" in log and "1 negative" in log.replace("     1", "1")
     assert "2025A" in log and "loss_sales_kg" in log
+
+
+def test_kcal_factors_are_sourced_and_consistent():
+    import csv
+    from isarura_core.config import CROPS, INPUTS, KCAL_PER_KG
+    assert list(KCAL_PER_KG) == CROPS
+    assert all(v > 0 for v in KCAL_PER_KG.values())
+    assert KCAL_PER_KG["rice"] < KCAL_PER_KG["maize"]            # paddy adjustment applied
+    with open(INPUTS / "kcal_per_kg.csv", newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            expect = (float(row["kcal_per_100g_edible"]) * 10 * (1 - float(row["waste_pct"]) / 100)
+                      * float(row["extra_factor"]))
+            assert KCAL_PER_KG[row["crop"]] == pytest.approx(expect, abs=1.0), row["crop"]
+            assert row["source"].strip() and row["table_entry"].strip()

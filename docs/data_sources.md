@@ -17,10 +17,12 @@ All inputs are NISR unless marked. Accessed 28 Oct 2026.
 | NISR CPI_time_series_September_2026.xls | Full monthly series (optional upgrade of cpi.csv) | 13.8 MB on the CPI September 2026 page | CC BY 4.0 |
 | NISR EICV7 2023/24 microdata (catalog 119) | Unit values (prices) | Fieldwork Oct 2023 - Oct 2024 | NISR terms |
 | NISR EICV7 Methodological Note (2025-04) | 2,400 kcal/adult equivalent/day (p.30); consumption valued in Jan 2024 national prices (pp.29-30) → price base month | statistics.gov.rw/sites/default/files/documents/2025-04/Methodological Note.pdf | Public |
-| kcal per kg by crop | Calorie conversion | **Still FAO placeholders.** Prefer an NISR table if found; else FAO/INFOODS with table and version. Rice: SAS reports paddy. | |
+| kcal per kg by crop (`data/inputs/kcal_per_kg.csv`) | Calorie conversion | West, Pepping & Temalilwa (1988), *The composition of foods commonly eaten in East Africa*, as reproduced in FAO (2001) *Improving Nutrition through Home Gardening*, Appendix 2 (fao.org/4/x3996e/x3996e44.htm), per 100 g edible portion, adjusted for waste. Flags below. | Public |
 | District boundaries | Map | TODO: NISR geodata first, geoBoundaries fallback | TODO |
 
 ## Notes
+
+- **Calorie factor flags:** rice: SAS reports paddy, so the milled value is multiplied by 0.65 (paddy to milled), an assumption not yet sourced. Cooking banana uses "Plantain, ripe, raw" (proxy). Wheat uses "Wheat, whole, parboiled" (proxy, no raw-grain entry). Cassava assumes the SAS reports fresh roots; confirm against the SAS report definitions.
 
 - **Food inflation:** in September 2026, food prices rose 20.9% in the year in **urban** areas, 27.0% in **rural** areas and 25.2% for all Rwanda (CPI Sept 2026, Annexes 1-3). We use the rural index because the losses are on farms.
 - **Price roll-forward:** rural food index Jan-24 236.2 → Sep-26 332.5, factor 1.408.

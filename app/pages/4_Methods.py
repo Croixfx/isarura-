@@ -53,7 +53,7 @@ st.markdown(f"""
 | Uncertainty | 95% interval from resampling survey clusters (200 replicates). Cells with fewer than {meta['min_n']} farmers are flagged and greyed. |
 | Tonnes | Loss rate x NISR published district production, so tonnes reconcile with official totals. |
 | Price (when loaded) | Median EICV7 household unit value per crop and district (trimmed), rolled forward to {meta['price_month']} with the rural CPI food index. Low/high = 25th/75th percentile. |
-| Meals | Tonnes x kcal per kg (FAO/INFOODS), divided by the daily adult requirement x 365. |
+| Meals | Tonnes x kcal per kg (East African food composition table, see sources), divided by the daily adult requirement x 365. |
 | Priority | Default: rank district-crop pairs by value lost. Scenario: user-chosen share avoidable per stage and cost per tonne. |
 """)
 
@@ -76,7 +76,7 @@ st.markdown("""
 - NISR SAS 2025 annual report (published production tables)
 - NISR EICV7 2023/24 (unit values, extreme poverty)
 - NISR CPI time series, September 2026 (CC BY 4.0)
-- FAO/INFOODS food composition tables (TODO: exact table and version)
+- Calorie factors: West, Pepping & Temalilwa (1988), *The composition of foods commonly eaten in East Africa*, as reproduced in FAO (2001), *Improving Nutrition through Home Gardening*, Appendix 2. Per 100 g edible portion, adjusted for waste. **Assumptions:** rice is paddy, so the milled value is multiplied by 0.65 (an assumed paddy-to-milled rate, not yet sourced); cooking banana uses plantain and wheat uses parboiled wheat as proxies; cassava is assumed to be reported as fresh roots.
 - District boundaries: TODO (NISR geodata or geoBoundaries, with licence)
 
 **Data use.** No farm- or household-level data is in this app or its repository; only aggregates.
