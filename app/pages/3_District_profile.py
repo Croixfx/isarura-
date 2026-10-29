@@ -3,7 +3,8 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
-from common import BADGE, crop_name, download, load, rwf, season_filter, setup, tonnes
+from common import (BADGE, DETAIL_CAPTION, crop_name, download, load, prices_ready, rwf, season_filter, setup,
+                    tonnes)
 from isarura_core.config import DISTRICT_LIST, STAGES
 from isarura_core.priority import priority
 
@@ -13,6 +14,8 @@ default = st.session_state.get("district", DISTRICT_LIST[0])
 district = st.selectbox("District", DISTRICT_LIST, index=DISTRICT_LIST.index(default))
 st.session_state["district"] = district
 st.title(f"{district}: what to fix first")
+st.caption(DETAIL_CAPTION)
+has_prices = prices_ready(meta)
 
 lv = load("loss_value")
 lv = lv[lv["season"].isin(seasons)]
@@ -21,16 +24,20 @@ tot = mine[mine["stage"] == "total"]
 
 c1, c2, c3 = st.columns(3)
 c1.metric("Food lost", tonnes(tot["tonnes_lost"].sum()))
-c2.metric("Value lost", rwf(tot["value_rwf"].sum()))
+c2.metric("Value lost", rwf(tot["value_rwf"].sum()) if has_prices else "Coming soon")
+if not has_prices:
+    c2.caption("Needs EICV7 unit prices, which are not loaded yet.")
 c3.metric("Adult-years of food", f"{tot['adult_years'].sum():,.0f}")
 st.markdown(BADGE["calculated"])
 
 left, right = st.columns(2)
 with left:
-    st.subheader("Top crops by value lost")
-    top = tot.groupby("crop", as_index=False)["value_rwf"].sum().sort_values("value_rwf", ascending=False).head(5)
+    vcol = "value_rwf" if has_prices else "tonnes_lost"
+    st.subheader("Top crops by value lost" if has_prices else "Top crops by tonnes lost")
+    top = tot.groupby("crop", as_index=False)[vcol].sum().sort_values(vcol, ascending=False).head(5)
     top["Crop"] = top["crop"].map(crop_name)
-    fig = px.bar(top, x="value_rwf", y="Crop", orientation="h", labels={"value_rwf": "Value lost (Rwf)", "Crop": ""},
+    fig = px.bar(top, x=vcol, y="Crop", orientation="h",
+                 labels={"value_rwf": "Value lost (Rwf)", "tonnes_lost": "Tonnes lost", "Crop": ""},
                  color_discrete_sequence=["#0072B2"])
     fig.update_layout(height=280, margin=dict(l=0, r=0, t=10, b=0), yaxis={"categoryorder": "total ascending"})
     st.plotly_chart(fig, width="stretch")
@@ -47,6 +54,10 @@ with right:
 
 st.divider()
 st.subheader("Priority list")
+if not has_prices:
+    st.info("The priority list ranks district-crop pairs by the Rwf value lost, so it needs EICV7 unit prices. "
+            "They are not loaded yet.")
+    st.stop()
 with st.expander("Test a scenario: what if an intervention avoided part of the loss?", expanded=False):
     st.caption("These are your assumptions, not NISR statistics. Leave all at 0 to rank by total loss value.")
     cols = st.columns(len(STAGES))

@@ -113,3 +113,104 @@ def test_loss_share_matches_nisr_workbook(book, sheet, season):
             assert sh[crop] == pytest.approx(r[col], rel=1e-6), (sheet, crop)
             checked += 1
     assert checked >= 2   # season C covers only sweet potato, Irish potato and beans (beans are weighted, not checked)
+
+
+# ---- scaling survey district shares to the NISR national total (step 03 fallback) ----------------------
+def _base(rows):
+    return pd.DataFrame(rows, columns=["crop", "district", "season", "survey_t", "production_t"])
+
+
+def test_scale_to_national_districts_sum_to_nisr_national():
+    from isarura_core.estimators import BASE_DISTRICT, BASE_NATIONAL_SHARE, scale_to_national
+    nat = pd.read_csv(INPUTS / "published_national.csv")
+    nan = float("nan")
+    base = _base([("maize", "Huye", "2024A", 100.0, nan), ("maize", "Gasabo", "2024A", 300.0, nan),
+                  ("beans", "Huye", "2024A", 50.0, nan), ("beans", "Gasabo", "2024A", 50.0, nan),
+                  ("maize", "Huye", "2025A", 10.0, 111.0), ("maize", "Gasabo", "2025A", 20.0, 222.0)])
+    out = scale_to_national(base, nat).set_index(["crop", "district", "season"])
+    national = nat.set_index(["crop", "season"])["production_t"]
+    for crop in ("maize", "beans"):
+        g = out.loc[crop].xs("2024A", level="season")
+        assert g["production_t"].sum() == pytest.approx(national[(crop, "2024A")])
+        assert (g["production_base"] == BASE_NATIONAL_SHARE).all()
+    # shares follow the survey: Gasabo has 3x Huye's maize
+    assert out.loc[("maize", "Gasabo", "2024A"), "production_t"] == pytest.approx(
+        0.75 * national[("maize", "2024A")])
+    # a crop x season with published district figures is untouched
+    assert out.loc[("maize", "Huye", "2025A"), "production_t"] == 111.0
+    assert out.loc[("maize", "Huye", "2025A"), "production_base"] == BASE_DISTRICT
+
+
+def test_scale_to_national_falls_back_to_survey_when_no_national_figure():
+    from isarura_core.estimators import BASE_SURVEY, scale_to_national
+    nat = pd.read_csv(INPUTS / "published_national.csv")
+    nan = float("nan")
+    out = scale_to_national(_base([("maize", "Huye", "1999A", 40.0, nan), ("maize", "Gasabo", "1999A", 60.0, nan)]), nat)
+    assert out["production_t"].tolist() == [40.0, 60.0]
+    assert (out["production_base"] == BASE_SURVEY).all()
+
+
+# ---- national headline: NISR production x NISR loss share (loss_official) ----------------------------------
+def _official(prices=None):
+    from isarura_core.conversions import official_loss
+    nat = pd.read_csv(INPUTS / "published_national.csv")
+    share = pd.read_csv(INPUTS / "published_loss_share.csv")
+    return official_loss(nat, share, prices), nat, share
+
+
+def test_loss_official_covers_every_published_crop_season_incl_rice():
+    out, nat, share = _official()
+    check(out, "loss_official")
+    assert set(out["season"]) == {"2025A", "2025B", "2025C", "2026A", "2026B"}   # 2024 has no NISR loss share
+    assert len(out) == len(share)                                                  # every published loss share is used
+    assert not out.duplicated(["crop", "season"]).any()
+    assert {"rice"} <= set(out[out["season"] == "2025A"]["crop"])
+    assert set(out[out["season"] == "2025C"]["crop"]) == {"beans", "irish_potato", "sweet_potato"}
+
+
+def test_loss_official_math():
+    out, nat, share = _official()
+    r = out.set_index(["crop", "season"])
+    n = nat.set_index(["crop", "season"])["production_t"]
+    s = share.set_index(["crop", "season"])["loss_share_pct"]
+    for key in [("maize", "2025A"), ("rice", "2025B"), ("beans", "2026A")]:
+        assert r.loc[key, "production_t"] == pytest.approx(n[key])
+        assert r.loc[key, "tonnes_lost"] == pytest.approx(n[key] * s[key] / 100)
+    from isarura_core.config import KCAL_PER_ADULT_DAY, KCAL_PER_KG
+    k = ("maize", "2025A")
+    assert r.loc[k, "kcal"] == pytest.approx(r.loc[k, "tonnes_lost"] * 1000 * KCAL_PER_KG["maize"])
+    assert r.loc[k, "adult_years"] == pytest.approx(r.loc[k, "kcal"] / (KCAL_PER_ADULT_DAY * 365))
+    assert "NISR" in r.loc[k, "source"] and "loss share" in r.loc[k, "source"]
+
+
+def test_loss_official_value_columns_empty_without_prices_and_filled_with():
+    out, _, _ = _official()
+    assert out[["value_low_rwf", "value_rwf", "value_high_rwf"]].isna().all().all()
+    assert out["tonnes_lost"].notna().all() and out["adult_years"].notna().all()
+    prices = pd.DataFrame({"crop": ["maize", "maize"], "price_low": [100.0, 100.0],
+                           "price_central": [200.0, 200.0], "price_high": [300.0, 300.0]})
+    out2, _, _ = _official(prices)
+    m = out2[out2["crop"] == "maize"].iloc[0]
+    assert m["value_rwf"] == pytest.approx(m["tonnes_lost"] * 1000 * 200)
+    assert out2[out2["crop"] == "beans"]["value_rwf"].isna().all()   # no price for beans -> empty, not zero
+
+
+def test_loss_official_empty_inputs_give_empty_valid_table():
+    from isarura_core.conversions import official_loss
+    nat = pd.read_csv(INPUTS / "published_national.csv")
+    out = official_loss(nat, pd.DataFrame(columns=["crop", "season", "loss_share_pct", "source"]))
+    assert out.empty
+    check(out, "loss_official")
+
+
+def test_cpi_factor_averages_several_base_months():
+    cpi = check(pd.read_csv(INPUTS / "cpi.csv", dtype={"month": str}), "cpi")
+    f = cpi_factor(cpi, ("2024-01", "2024-12"), "2026-09", "Rural")
+    assert f == pytest.approx(332.5 / ((236.2 + 256.4) / 2))
+    assert 1.34 < f < 1.36
+    assert cpi_factor(cpi, ["2024-01"], "2026-09", "Rural") == pytest.approx(cpi_factor(cpi, "2024-01", "2026-09", "Rural"))
+
+
+def test_step04_uses_the_averaged_base():
+    from pipeline import step04_prices_cpi as s4
+    assert s4.EICV7_BASE_MONTHS == ("2024-01", "2024-12")

@@ -3,12 +3,13 @@ import numpy as np
 import plotly.express as px
 import streamlit as st
 
-from common import BADGE, crop_name, download, load, season_filter, setup
+from common import BADGE, DETAIL_CAPTION, crop_name, download, load, season_filter, setup
 from isarura_core.config import DISTRICT_LIST, STAGES
 
 meta = setup("Crop and stage")
 seasons = season_filter(meta)
 st.title("Which crop loses most, and where in the chain?")
+st.caption(DETAIL_CAPTION)
 
 area = st.selectbox("Area", ["National"] + DISTRICT_LIST)
 r = load("loss_rates")

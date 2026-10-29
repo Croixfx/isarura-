@@ -85,3 +85,81 @@ def test_priority_default_and_scenario():
     s = priority(lv, a_k={"storage": 0.5})
     assert s.iloc[0]["district"] == "Huye"               # storage fix pays more in Huye
     assert s.iloc[0]["avoidable_value_rwf"] == pytest.approx(40.0)
+
+
+def test_negative_losses_become_missing_and_are_logged(capsys):
+    from pipeline.step01_load_sas import negatives_to_missing
+    df = pd.DataFrame({"season": ["2024A", "2024A", "2025A"],
+                       "loss_total_kg": [5.0, -1.0, 2.0], "loss_storage_kg": [-340.0, 0.0, 3.0],
+                       "loss_transport_kg": [0.0, 1.0, 2.0], "loss_processing_kg": [0.0, 0.0, 0.0],
+                       "loss_packaging_kg": [0.0, 0.0, 0.0], "loss_sales_kg": [0.0, 0.0, -2.0]})
+    out = negatives_to_missing(df)
+    assert out["loss_storage_kg"].isna().tolist() == [True, False, False]
+    assert out["loss_total_kg"].isna().tolist() == [False, True, False]
+    assert out["loss_sales_kg"].isna().tolist() == [False, False, True]
+    assert out["loss_transport_kg"].notna().all()               # untouched columns keep their values
+    assert out["loss_storage_kg"].iloc[2] == 3.0 and out["loss_total_kg"].iloc[0] == 5.0
+    assert (df["loss_storage_kg"].iloc[0] == -340.0)           # input frame is not modified
+    log = capsys.readouterr().out
+    assert "2024A" in log and "loss_storage_kg" in log and "1 negative" in log.replace("     1", "1")
+    assert "2025A" in log and "loss_sales_kg" in log
+
+
+def test_kcal_factors_are_sourced_and_consistent():
+    import csv
+    from isarura_core.config import CROPS, INPUTS, KCAL_PER_KG
+    assert list(KCAL_PER_KG) == CROPS
+    assert all(v > 0 for v in KCAL_PER_KG.values())
+    assert KCAL_PER_KG["rice"] < KCAL_PER_KG["maize"]            # paddy adjustment applied
+    with open(INPUTS / "kcal_per_kg.csv", newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            expect = (float(row["kcal_per_100g_edible"]) * 10 * (1 - float(row["waste_pct"]) / 100)
+                      * float(row["extra_factor"]))
+            assert KCAL_PER_KG[row["crop"]] == pytest.approx(expect, abs=1.0), row["crop"]
+            assert row["source"].strip() and row["table_entry"].strip()
+    from isarura_core.config import RICE_PADDY_FACTOR
+    with open(INPUTS / "kcal_per_kg.csv", newline="", encoding="utf-8") as f:
+        rice = next(r for r in csv.DictReader(f) if r["crop"] == "rice")
+    assert float(rice["extra_factor"]) == RICE_PADDY_FACTOR     # one constant for prices and calories
+
+
+def test_price_table_has_national_rows_and_official_uses_them():
+    from isarura_core.conversions import national_prices, trimmed_price_table
+    rows = [{"crop": "maize", "district": d, "unit_value_rwf_per_kg": v}
+            for d, vs in {"Huye": range(100, 130), "Gasabo": range(300, 330), "Rusizi": [200] * 2}.items() for v in vs]
+    t = trimmed_price_table(pd.DataFrame(rows).assign(source="x"))
+    nat = t[t["district"] == "National"]
+    assert len(nat) == 1 and nat["source"].iloc[0] == "EICV7 unit values, national"
+    assert t.loc[(t["district"] == "Rusizi"), "price_central"].iloc[0] == nat["price_central"].iloc[0]  # thin -> national
+    assert national_prices(t)["price_central"].iloc[0] == nat["price_central"].iloc[0]
+    # without national rows it falls back to the median across districts
+    assert len(national_prices(t[t["district"] != "National"])) == 1
+
+
+def test_rice_price_is_scaled_to_paddy_in_step04():
+    import inspect
+    from pipeline import step04_prices_cpi as s4
+    assert "RICE_PADDY_FACTOR" in inspect.getsource(s4.run)
+
+
+def test_step01_farm_crop_losses_counted_once_and_implausible_ones_blanked(capsys):
+    from pipeline.step01_load_sas import (LOSS_COLS, complete_total_loss, implausible_losses_to_missing,
+                                          share_farm_crop_losses)
+    base = {c: float("nan") for c in LOSS_COLS}
+    rows = [  # farm F1 has two maize plots (harvest 100 + 300), loss 40 reported once on both rows
+        {**base, "farm_id": "s1|1", "raw_crop": "Maize", "season": "2025A", "harvest_kg": 100.0, "loss_storage_kg": 40.0},
+        {**base, "farm_id": "s1|1", "raw_crop": "Maize", "season": "2025A", "harvest_kg": 300.0, "loss_storage_kg": 40.0},
+        # farm F2 reports losing 500 kg of 50 kg harvested: impossible
+        {**base, "farm_id": "s1|2", "raw_crop": "Maize", "season": "2025A", "harvest_kg": 50.0, "loss_storage_kg": 500.0},
+    ]
+    df = complete_total_loss(pd.DataFrame(rows))
+    assert df["loss_total_kg"].tolist()[:2] == [40.0, 40.0]             # no total question -> sum of stages
+    shared = share_farm_crop_losses(df)
+    f1 = shared[shared["farm_id"] == "s1|1"]
+    assert f1["loss_storage_kg"].sum() == pytest.approx(40.0)           # counted once, not twice
+    assert f1["loss_storage_kg"].tolist() == pytest.approx([10.0, 30.0])  # in proportion to plot harvest
+    out = implausible_losses_to_missing(shared)
+    assert out.loc[out["farm_id"] == "s1|2", LOSS_COLS].isna().all().all()
+    assert out.loc[out["farm_id"] == "s1|2", "harvest_kg"].iloc[0] == 50.0   # row and harvest kept
+    assert out.loc[out["farm_id"] == "s1|1", "loss_storage_kg"].notna().all()
+    assert "1 rows with loss > harvest" in capsys.readouterr().out.replace("     1", "1")

@@ -88,18 +88,18 @@ Stretch (only if all above is done): Kinyarwanda headline labels (FR-15).
 - [x] **C2. CPI.** (typed from NISR CPI reports into `data/inputs/cpi.csv`; xls upgrade optional) Download `CPI_time_series_September_2026.xls`, write `cpi_from_xls()` in
       `step04_prices_cpi.py` (needs `xlrd`), output `data/inputs/cpi.csv` (month `YYYY-MM`, area,
       food_index).
-- [ ] **C3. Validate** as soon as Chadia sends `crop_records.parquet`:
+- [x] **C3. Validate** (done 29 Oct: 27/42 within 5%, tolerance kept at 5%) as soon as Chadia sends `crop_records.parquet`:
       `python run_pipeline.py --only 2`. If most totals miss, stop and fix weights / crop codes /
       season codes with Chadia before anything else. Then set `VALIDATION_TOLERANCE_PCT` in `config.py`.
       **Exit check: validation table exists (FR-01, FR-02).**
 
 ### Thu 29 Oct
-- [ ] **C4. Loss rates on real data** (`--only 3`). Look at `stage_consistency`; decide `MIN_N`.
-- [ ] **C5. Prices.** Download EICV7, write `load_eicv7_unit_values()` (crop, district,
-      value/quantity per item), confirm `EICV7_BASE_MONTH`. Run `--only 4 5 6`.
-- [ ] **C6. Replace placeholders** in `config.py`: `KCAL_PER_KG` from FAO/INFOODS (cite table and
+- [x] **C4. Loss rates on real data** (MIN_N kept at 10: 20% of district cells flagged) (`--only 3`). Look at `stage_consistency`; decide `MIN_N`.
+- [x] **C5. Prices.** (done: EICV7 S8B unit values, rice x0.65, Sep-2026 rural CPI roll-forward) Download EICV7, write `load_eicv7_unit_values()` (crop, district,
+      value/quantity per item), confirm `EICV7_BASE_MONTHS`. Run `--only 4 5 6`.
+- [x] **C6. Replace placeholders** (kcal done: data/inputs/kcal_per_kg.csv; KCAL_PER_ADULT_DAY done) in `config.py`: `KCAL_PER_KG` from FAO/INFOODS (cite table and
       version), `KCAL_PER_ADULT_DAY` from the EICV7 poverty methodology note.
-- [ ] **C7. Publish real aggregates:** `python run_pipeline.py --only 8` then commit `data/public/`.
+- [x] **C7. Publish real aggregates:** (done 29 Oct) `python run_pipeline.py --only 8` then commit `data/public/`.
       The demo banner disappears automatically (`meta.json` → `demo: false`). Tell Chadia.
 - [ ] **C8. Methods page and README:** sources with links, NST2 / Vision 2050 exact quote,
       originality, AI-use and IP-transfer declarations (fill every TODO in `4_Methods.py` and README).
