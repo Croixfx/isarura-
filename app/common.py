@@ -22,6 +22,7 @@ BADGE = {"official": f":blue-badge[{LABEL_OFFICIAL}]",
 
 def setup(title: str):
     st.set_page_config(page_title=f"{title} | Isarura", layout="wide")
+    import nisr_theme; nisr_theme.apply()
     meta = load_meta()
     if meta.get("demo"):
         st.warning("**Demo data.** These numbers are synthetic, generated to build the app. "
