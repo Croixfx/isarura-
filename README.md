@@ -127,3 +127,4 @@ No farm-level or household-level data is in this repository or the app; only agg
 - NISR microdata catalog (SAS 2024, SAS 2025, EICV7): https://microdata.statistics.gov.rw/index.php/catalog/113, /124, /119
 - MINAGRI, PSTA 5 abridged version: https://www.minagri.gov.rw/fileadmin/user_upload/Minagri/Publications/Policies_and_strategies/PSTA_5_Abridged_version_Final.pdf
 - FAO (2001), *Improving Nutrition through Home Gardening*, Appendix 2: https://www.fao.org/4/x3996e/x3996e44.htm
+- geoBoundaries, Rwanda ADM2 district boundaries: https://www.geoboundaries.org/
