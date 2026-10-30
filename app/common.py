@@ -33,6 +33,7 @@ NARROW_CSS = """<style>
 
 def setup(title: str):
     st.set_page_config(page_title=f"{title} | Isarura", layout="wide")
+    import nisr_theme; nisr_theme.apply()  # NISR look: logo, ISARURA wordmark, banner, cards. Keep this line.
     st.markdown(NARROW_CSS, unsafe_allow_html=True)
     meta = load_meta()
     if meta.get("demo"):
