@@ -142,16 +142,37 @@ section[data-testid="stSidebar"] {{ border-right: 1px solid {LINE}; }}
 [data-testid="stSidebarHeader"] > div:has(> a > img.stLogo) {{
   display: flex; align-items: center; gap: .65rem;
 }}
-img.stLogo {{ height: 2.4rem !important; width: auto; }}
+[data-testid="stSidebarHeader"] {{
+  height: auto !important;
+  min-height: 4.5rem;
+  padding-top: 1.4rem !important;
+  padding-bottom: 1.1rem !important;
+  margin-bottom: .4rem;
+  border-bottom: 1px solid {LINE};
+}}
+[data-testid="stSidebarHeader"] {{ position: relative; }}
+[data-testid="stSidebarHeader"] [data-testid="stSidebarCollapseButton"] {{
+  position: absolute; top: .35rem; right: .2rem;
+}}
+img.stLogo {{
+  height: 3.1rem !important;
+  max-height: none !important;
+  width: auto !important;
+}}
 [data-testid="stSidebarHeader"] > div:has(> img.stLogo)::after,
 [data-testid="stSidebarHeader"] > a:has(> img.stLogo)::after,
 [data-testid="stSidebarHeader"] > div:has(> a > img.stLogo)::after {{
-  content: "Isarura";
+  content: "ISARURA";
   font-family: "Lexend", sans-serif;
-  font-weight: 700;
-  font-size: 1.35rem;
+  font-weight: 800;
+  font-size: 1.6rem;
+  line-height: 1;
+  letter-spacing: .1em;
   color: {NAVY};
-  letter-spacing: -0.01em;
+  background: linear-gradient(90deg, {NAVY} 0%, {BLUE} 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }}
 [data-testid="stSidebarNav"] a {{ border-radius: 6px; }}
 [data-testid="stSidebarNav"] a span {{ color: {BODY}; font-weight: 500; }}
