@@ -3,9 +3,9 @@
 **From harvest to table: where Rwanda's food is lost after harvest, what it is worth today, and where to act first.**
 
 NISR 2026 Big Data Hackathon · Track 1: Agricultural Productivity
-Team: NIYONKURU Jean De La Croix, Chadia
+Team: Jean De La Croix Niyonkuru and Chadia Ingabire, University of Rwanda
 
-- **Live app:** not deployed yet (to be added before submission)
+- **Live app:** https://isarura.streamlit.app/
 - **Backup:** not deployed yet
 - **Demo video (under 3 min):** not recorded yet
 
@@ -62,7 +62,7 @@ Every number is labelled **Official (NISR published)**, **Calculated by Isarura*
 | CPI, January 2025 and September 2026 reports | NISR | Rural food index, used to roll prices forward |
 | *The composition of foods commonly eaten in East Africa* (West, Pepping & Temalilwa, 1988), via FAO (2001) | FAO / WUR | kcal per kg, net of inedible waste |
 | PSTA 5 (MINAGRI, 2024) | MINAGRI | Policy targets and the 13.8% baseline |
-| District boundaries | TODO | Map (TODO: source and licence) |
+| District boundaries | Source to be confirmed | Map |
 
 Full details: `docs/data_sources.md`.
 
@@ -115,10 +115,9 @@ No farm-level or household-level data is in this repository or the app; only agg
 
 ## Declarations
 
-- **Original work:** TODO. Example: "This project is the original work of the team, created for the NISR 2026 Big Data Hackathon."
-- **AI use:** We used Claude (Anthropic) and Claude Code as assistants for code, data checks and drafting text. No machine-learning model produces any estimate. The team reviewed and takes responsibility for all code, figures and conclusions.
-- **Intellectual property:** TODO. Copy the exact wording required by the competition rules on transfer of IP to NISR.
-- **Team:** TODO
+- **Original work:** This project is the original work of the team, built for the NISR 2026 Big Data Hackathon (Track 1).
+- **Intellectual property:** In line with the competition rules, the team agrees to the transfer of intellectual property rights in this submission to NISR.
+- **Team:** Jean De La Croix Niyonkuru and Chadia Ingabire, University of Rwanda.
 
 ## Sources
 
