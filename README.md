@@ -6,8 +6,7 @@ NISR 2026 Big Data Hackathon · Track 1: Agricultural Productivity
 Team: Jean De La Croix Niyonkuru and Chadia Ingabire, University of Rwanda
 
 - **Live app:** https://isarura.streamlit.app/
-- **Backup:** not deployed yet
-- **Demo video (under 3 min):** not recorded yet
+
 
 ---
 
