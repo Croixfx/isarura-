@@ -78,10 +78,10 @@ st.markdown("""
 - NISR Seasonal Agricultural Survey microdata 2024, 2025 (microdata.statistics.gov.rw, catalog 113, 124)
 - NISR SAS 2025 annual report (published production tables)
 - NISR EICV7 2023/24 (catalog 119), food purchases module (S8B): unit values = value / quantity for purchases reported in kg, visits 2 to 5. **Caveat:** these are household *purchase* prices, not farm-gate prices. Farm-gate values are typically lower, so the Rwf figures are an upper-side estimate of farmers' loss. The file has no purchase dates (fieldwork ran October 2023 to October 2024), so prices are rolled to the latest month with the rural food CPI from the average of the January 2024 and December 2024 index, a mid-2024 proxy (an assumption). **Rice:** EICV7 prices milled rice but the SAS loss is paddy, so rice prices are multiplied by 0.65, an assumed paddy-to-milled rate that is not yet sourced.
-- NISR CPI time series, September 2026 (CC BY 4.0)
+- NISR Consumer Price Index reports, January 2025 and September 2026, Annexes 1-3 (rural food index; NISR data are licensed CC BY 4.0 unless otherwise indicated)
 - Calorie factors: West, Pepping & Temalilwa (1988), *The composition of foods commonly eaten in East Africa*, as reproduced in FAO (2001), *Improving Nutrition through Home Gardening*, Appendix 2. Per 100 g edible portion, adjusted for waste. **Assumptions:** rice is paddy, so the milled value is multiplied by 0.65 (an assumed paddy-to-milled rate, not yet sourced); cooking banana uses plantain and wheat uses parboiled wheat as proxies; cassava is assumed to be reported as fresh roots.
-- District boundaries: TODO (NISR geodata or geoBoundaries, with licence)
+- District boundaries: source to be confirmed
 
 **Data use.** No farm- or household-level data is in this app or its repository; only aggregates.
-**Originality.** TODO: declaration text. **AI use.** TODO: disclosure text. **IP.** TODO: note on transfer to NISR per rules.
+**Originality.** This project is the original work of the team, built for the NISR 2026 Big Data Hackathon (Track 1). **IP.** In line with the competition rules, the team agrees to the transfer of intellectual property rights in this submission to NISR.
 """)

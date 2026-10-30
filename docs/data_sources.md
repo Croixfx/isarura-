@@ -18,7 +18,7 @@ All inputs are NISR unless marked. Accessed 28 Oct 2026.
 | NISR EICV7 2023/24 microdata (catalog 119), `Cross_Section/CS_S8B_Food_Expenditure_Consumption.dta` | Unit values (prices): value / quantity of purchases reported in kg, visits 2-5, items 19 maize, 1 beans, 45 sorghum, 16 rice (milled), 47 wheat, 7 cassava, 5 Irish potato, 6 sweet potato, 9 cooking banana | Fieldwork Oct 2023 - Oct 2024. Household purchase prices, not farm-gate. The file has no purchase dates. | NISR terms (not committed) |
 | NISR EICV7 Methodological Note (2025-04) | 2,400 kcal/adult equivalent/day (p.30); consumption valued in Jan 2024 national prices (pp.29-30) → price base month | statistics.gov.rw/sites/default/files/documents/2025-04/Methodological Note.pdf | Public |
 | kcal per kg by crop (`data/inputs/kcal_per_kg.csv`) | Calorie conversion | West, Pepping & Temalilwa (1988), *The composition of foods commonly eaten in East Africa*, as reproduced in FAO (2001) *Improving Nutrition through Home Gardening*, Appendix 2 (fao.org/4/x3996e/x3996e44.htm), per 100 g edible portion, adjusted for waste. Flags below. | Public |
-| District boundaries | Map | TODO: NISR geodata first, geoBoundaries fallback | TODO |
+| District boundaries | Map | Source to be confirmed | To be confirmed |
 
 ## Notes
 
