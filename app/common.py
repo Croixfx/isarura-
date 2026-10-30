@@ -20,8 +20,20 @@ BADGE = {"official": f":blue-badge[{LABEL_OFFICIAL}]",
          "scenario": f":orange-badge[{LABEL_SCENARIO}]"}
 
 
+# Phones (360px): side-by-side columns stack at full width instead of shrinking; charts never overflow.
+NARROW_CSS = """<style>
+@media (max-width: 640px) {
+  [data-testid="stHorizontalBlock"] { flex-wrap: wrap; }
+  [data-testid="stHorizontalBlock"] > [data-testid="stColumn"] { min-width: 100% !important; flex: 1 1 100% !important; }
+  [data-testid="stMainBlockContainer"] { padding-left: 1rem; padding-right: 1rem; }
+  .js-plotly-plot, .plotly, .stPlotlyChart { max-width: 100% !important; }
+}
+</style>"""
+
+
 def setup(title: str):
     st.set_page_config(page_title=f"{title} | Isarura", layout="wide")
+    st.markdown(NARROW_CSS, unsafe_allow_html=True)
     meta = load_meta()
     if meta.get("demo"):
         st.warning("**Demo data.** These numbers are synthetic, generated to build the app. "

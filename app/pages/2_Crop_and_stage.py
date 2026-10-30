@@ -25,7 +25,9 @@ shown.index = [crop_name(c) for c in shown.index]
 
 fig = px.imshow(shown * 100, color_continuous_scale="cividis", aspect="auto", text_auto=".1f",
                 labels={"color": "% of harvest lost", "x": "Stage", "y": ""})
-fig.update_layout(height=420, margin=dict(l=0, r=0, t=10, b=0), plot_bgcolor="#d9d9d9")
+fig.update_traces(textfont_size=14)          # cell values 14px
+fig.update_layout(height=420, margin=dict(l=0, r=0, t=10, b=0), plot_bgcolor="#d9d9d9", autosize=True,
+                  coloraxis_colorbar=dict(orientation="h", y=-0.15, thickness=10, len=0.9, title_side="top"))
 st.plotly_chart(fig, width="stretch")
 st.markdown(BADGE["calculated"] + f" Grey cells: fewer than {meta['min_n']} sampled farmers, not shown.")
 
