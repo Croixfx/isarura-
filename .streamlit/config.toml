@@ -1,7 +1,39 @@
+# Isarura theme, aligned with the NISR website (statistics.gov.rw):
+# Lexend type, NISR navy headings, NISR blue actions, grey panels.
+
 [theme]
 base = "light"
-primaryColor = "#0072B2"
-font = "sans serif"
+primaryColor = "#2258A9"              # NISR interaction blue
+backgroundColor = "#FFFFFF"           # charts, tables and cards sit on white
+secondaryBackgroundColor = "#F1F4F7"  # inputs, table headers
+textColor = "#37404D"                 # NISR body text
+borderColor = "#DCE1E6"
+linkColor = "#2258A9"
+linkUnderline = false
+baseRadius = "8px"
+showWidgetBorder = true
+
+blueColor = "#2258A9"      # Official badge, info boxes
+greenColor = "#008C7E"     # Calculated badge
+orangeColor = "#C95100"    # Scenario badge
+redColor = "#CE3936"
+yellowColor = "#C95100"
+
+font = "Lexend:https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap"
+headingFont = "Lexend:https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap"
+baseFontSize = 15
+baseFontWeight = 400
+metricValueFontWeight = 600
+
+# Chart colours from the NISR palette, colour-blind validated, fixed order
+chartCategoricalColors = ["#2258A9", "#C95100", "#008C7E", "#855CD7", "#CE3936"]
+chartSequentialColors = ["#EAF1FA", "#BFD4EE", "#8DB4E0", "#5B8FCB", "#2258A9", "#163F7D", "#0D2343"]
+
+[theme.sidebar]
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F1F4F7"
+textColor = "#37404D"
+borderColor = "#DCE1E6"
 
 [server]
 headless = true
