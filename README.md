@@ -61,7 +61,7 @@ Every number is labelled **Official (NISR published)**, **Calculated by Isarura*
 | CPI, January 2025 and September 2026 reports | NISR | Rural food index, used to roll prices forward |
 | *The composition of foods commonly eaten in East Africa* (West, Pepping & Temalilwa, 1988), via FAO (2001) | FAO / WUR | kcal per kg, net of inedible waste |
 | PSTA 5 (MINAGRI, 2024) | MINAGRI | Policy targets and the 13.8% baseline |
-| District boundaries | Source to be confirmed | Map |
+| District boundaries | geoBoundaries | Map |
 
 Full details: `docs/data_sources.md`.
 
