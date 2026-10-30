@@ -83,5 +83,5 @@ st.markdown("""
 - District boundaries: source to be confirmed
 
 **Data use.** No farm- or household-level data is in this app or its repository; only aggregates.
-**Originality.** This project is the original work of the team, built for the NISR 2026 Big Data Hackathon (Track 1). **AI use.** We used Claude (Anthropic) and Claude Code as assistants for code, data checks and drafting text; the team reviewed and takes responsibility for all code, figures and conclusions. No machine-learning model produces any estimate. **IP.** In line with the competition rules, the team agrees to the transfer of intellectual property rights in this submission to NISR.
+**Originality.** This project is the original work of the team, built for the NISR 2026 Big Data Hackathon (Track 1). **IP.** In line with the competition rules, the team agrees to the transfer of intellectual property rights in this submission to NISR.
 """)

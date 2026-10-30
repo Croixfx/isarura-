@@ -116,7 +116,6 @@ No farm-level or household-level data is in this repository or the app; only agg
 ## Declarations
 
 - **Original work:** This project is the original work of the team, built for the NISR 2026 Big Data Hackathon (Track 1).
-- **AI use:** We used Claude (Anthropic) and Claude Code as assistants for code, data checks and drafting text. No machine-learning model produces any estimate. The team reviewed and takes responsibility for all code, figures and conclusions.
 - **Intellectual property:** In line with the competition rules, the team agrees to the transfer of intellectual property rights in this submission to NISR.
 - **Team:** Jean De La Croix Niyonkuru and Chadia Ingabire, University of Rwanda.
 

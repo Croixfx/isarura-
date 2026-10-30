@@ -102,7 +102,7 @@ Stretch (only if all above is done): Kinyarwanda headline labels (FR-15).
 - [x] **C7. Publish real aggregates:** (done 29 Oct) `python run_pipeline.py --only 8` then commit `data/public/`.
       The demo banner disappears automatically (`meta.json` → `demo: false`). Tell Chadia.
 - [ ] **C8. Methods page and README:** sources with links, NST2 / Vision 2050 exact quote,
-      originality, AI-use and IP-transfer declarations (fill every TODO in `4_Methods.py` and README).
+      originality and IP-transfer declarations (fill every TODO in `4_Methods.py` and README).
 
 ### Fri 30 Oct (until 15:00)
 - [ ] **C9. Numbers check:** every headline number on the app matches `data/public`; every number has
